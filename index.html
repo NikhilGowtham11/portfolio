@@ -23,15 +23,14 @@
             --card: rgba(18, 20, 29, 0.8); 
         }
 
-        /* --- ADD THIS AROUND LINE 15 --- */
         #status-box {
     position: fixed;
     top: 30px;
     left: 30px;
     z-index: 10001;
-    background: rgba(var(--card-rgb), 0.4); /* Requires a RGB variable or just use rgba(255,255,255,0.4) */
+    background: rgba(var(--card-rgb), 0.4);
     backdrop-filter: blur(12px);
-    border-left: 3px solid var(--accent); /* Architect accent line */
+    border-left: 3px solid var(--accent);
     padding: 8px 18px;
     display: flex;
     align-items: center;
@@ -44,9 +43,9 @@
 }
 
 #current-activity {
-    font-family: 'Courier New', Courier, monospace; /* Terminal font */
+    font-family: 'Courier New', Courier, monospace;
     color: var(--accent);
-    border-right: 2px solid var(--accent); /* Cursor blink */
+    border-right: 2px solid var(--accent);
     white-space: nowrap;
     overflow: hidden;
     animation: blink-cursor 0.8s step-end infinite;
@@ -61,7 +60,6 @@
             100% { transform: scale(3.5); opacity: 0; }
         }
 
-        /* Ensure mobile doesn't overlap with hero text */
         @media (max-width: 768px) {
             #status-box { top: 20px; left: 20px; font-size: 8px; padding: 6px 10px; }
         }
@@ -145,7 +143,7 @@
        /* SPLIT LAYOUT FOR LAB SECTION */
 .lab-split-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
     width: 100%;
     max-width: 1100px;
@@ -243,7 +241,6 @@
         .tag { font-family: 'Montserrat'; font-size: 10px; letter-spacing: 5px; color: var(--accent); text-transform: uppercase; margin-bottom: 15px; display: block; }
 
         .resume-bridge { width: 100%; border-top: 1px dashed var(--accent); border-bottom: 1px dashed var(--accent); padding: 100px 0; margin: 40px 0; }
-    /* ... existing styles ... */
 
         .resume-bridge { 
             width: 100%; 
@@ -254,10 +251,8 @@
 
        #contact h2 {
     font-family: 'Montserrat', sans-serif;
-    /* Lowercase looks better with a lighter weight */
     text-transform: lowercase !important; 
     font-weight: 300; 
-    /* Spacing makes lowercase look high-end */
     letter-spacing: 1px; 
     font-size: clamp(18px, 3vw, 26px);
     margin-bottom: 30px;
@@ -265,7 +260,6 @@
     opacity: 0.9;
 }
 
-    </style>
     </style>
 </head>
 <body>
@@ -314,7 +308,6 @@
 
     </div>
 </section>
-        </section>
 
         <section id="id-vault">
             <span class="tag">02. ARCHIVE</span>
@@ -383,7 +376,34 @@
                 <span class="action-text">> launch_site.live</span>
             </div>
 
-            <div class="split-card" onclick="window.open('https://for-retail.github.io/yoga/', '_blank')">
+           
+
+            <!-- ✅ NEW CARDS ADDED BELOW -->
+
+            <div class="split-card" onclick="window.open('https://for-retail.github.io/our-dream-studio/', '_blank')">
+                <h3>Our Dream Studio</h3>
+                <p>Creative studio showcase with a polished brand identity and immersive presentation layout.</p>
+                <span class="action-text">> launch_site.live</span>
+            </div>
+
+            <div class="split-card" onclick="window.open('https://for-retail.github.io/Archana_studio/', '_blank')">
+                <h3>Archana Studio</h3>
+                <p>Elegant studio portfolio website with refined aesthetics built for creative professionals.</p>
+                <span class="action-text">> launch_site.live</span>
+            </div>
+
+            <div class="split-card" onclick="window.open('https://for-retail.github.io/Viraamam-Caf-/customer-app.html', '_blank')">
+                <h3>Viraamam Café</h3>
+                <p>Digital customer app for a café experience — menu browsing and smooth order flow design.</p>
+                <span class="action-text">> launch_site.live</span>
+            </div>
+
+            <div class="split-card" onclick="window.open('https://for-retail.github.io/amara/', '_blank')">
+                <h3>Amara</h3>
+                <p>Sophisticated brand landing page with clean typography and a premium visual identity.</p>
+                <span class="action-text">> launch_site.live</span>
+            </div>
+             <div class="split-card" onclick="window.open('https://for-retail.github.io/yoga/', '_blank')">
                 <h3>Anusha Mindful Yoga</h3>
                 <p>Minimalist yoga landing page featuring organic animations and serene aesthetics.</p>
                 <span class="action-text">> launch_site.live</span>
@@ -394,10 +414,13 @@
                 <p>Real estate marketing platform designed for premium property and venture listings.</p>
                 <span class="action-text">> launch_site.live</span>
             </div>
+
         </div>
 
     </div>
 </section>
+    </div>
+
     <script>
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
@@ -451,17 +474,17 @@
                     {
     t: 'MaHi', 
     tag: 'STORY ARCHIVE', 
-    c: `<strong style="text-decoration: underline;">CONCEPT</strong><br>A grieving father protects a young girl who received his daughter’s heart transplant after his own child died saving her. Years later, when the girl becomes a target due to her powerful father’s enemies, the man risks his life to keep her alive, believing a part of his daughter still lives within her.<br><br><strong style="text-decoration: underline;">CORE IDEA</strong><br>The life of one child continues inside another. A father who lost everything now guards the only remaining piece of his daughter’s existence, proving that love can outlive death through responsibility.<br><br><strong style="text-decoration: underline;">PRIMARY CHARACTERS</strong><br><br><div class="char" style="animation-delay: 1.0s"><strong>The Protagonist:</strong> A broken father driven by grief and a promise; he refuses to lose the life his daughter died to save.</div><br><div class="char" style="animation-delay: 1.3s"><strong>Hima:</strong> The transplant recipient. Innocent and unaware that her survival cost another life, she symbolizes the continuation of Maya.</div><br><div class="char" style="animation-delay: 1.6s"><strong>Maya:</strong> The deceased daughter. She exists through memories and visions that guide her father in moments of danger.</div><br><div class="char" style="animation-delay: 1.9s"><strong>Hima’s Father:</strong> A powerful, morally gray figure whose influence saved his daughter but now puts her in mortal danger.</div><br><div class="char" style="animation-delay: 2.2s"><strong>Maya’s Mother:</strong> The moral anchor who ensures the promise of protection is kept no matter the cost.</div><br><br><strong style="text-decoration: underline;">CONCEPT TONE</strong><br>An emotional action drama grounded in sacrifice, memory, and the belief that parenthood is defined by protection rather than just blood.`
+    c: `<strong style="text-decoration: underline;">CONCEPT</strong><br>A grieving father protects a young girl who received his daughter's heart transplant after his own child died saving her. Years later, when the girl becomes a target due to her powerful father's enemies, the man risks his life to keep her alive, believing a part of his daughter still lives within her.<br><br><strong style="text-decoration: underline;">CORE IDEA</strong><br>The life of one child continues inside another. A father who lost everything now guards the only remaining piece of his daughter's existence, proving that love can outlive death through responsibility.<br><br><strong style="text-decoration: underline;">PRIMARY CHARACTERS</strong><br><br><div class="char" style="animation-delay: 1.0s"><strong>The Protagonist:</strong> A broken father driven by grief and a promise; he refuses to lose the life his daughter died to save.</div><br><div class="char" style="animation-delay: 1.3s"><strong>Hima:</strong> The transplant recipient. Innocent and unaware that her survival cost another life, she symbolizes the continuation of Maya.</div><br><div class="char" style="animation-delay: 1.6s"><strong>Maya:</strong> The deceased daughter. She exists through memories and visions that guide her father in moments of danger.</div><br><div class="char" style="animation-delay: 1.9s"><strong>Hima's Father:</strong> A powerful, morally gray figure whose influence saved his daughter but now puts her in mortal danger.</div><br><div class="char" style="animation-delay: 2.2s"><strong>Maya's Mother:</strong> The moral anchor who ensures the promise of protection is kept no matter the cost.</div><br><br><strong style="text-decoration: underline;">CONCEPT TONE</strong><br>An emotional action drama grounded in sacrifice, memory, and the belief that parenthood is defined by protection rather than just blood.`
 },
                     {
     t: 'Bite', 
     tag: 'STORY ARCHIVE', 
-    c: `<strong style="text-decoration: underline;">CONCEPT</strong><br>A man attempts to break up a street dog fight and gets bitten. In a moment of impulsive rage, he bites the dog back. The incident lands both in separate hospitals, receiving treatment for each other’s bite wounds.<br><br><strong style="text-decoration: underline;">CORE HOOK</strong><br>A human and a dog begin to mirror each other’s behavior, crossing the line between instinct and reason. The situation spirals into an absurd rivalry as they blame each other for their mutual suffering.<br><br><strong style="text-decoration: underline;">SCENARIO BEATS</strong><br><br><div class="char" style="animation-delay: 1.0s"><strong>The Mirror Effect:</strong> Both characters are shown in parallel hospital beds, dealing with painful injections and restrictive cones.</div><br><div class="char" style="animation-delay: 1.3s"><strong>The Rivalry:</strong> What starts as a freak accident becomes a personal vendetta, with each side feeling like the true victim.</div><br><div class="char" style="animation-delay: 1.6s"><strong>Role Reversal:</strong> The man begins to adopt canine-like aggression, while the dog displays human-like spite and dramatic flair.</div><br><div class="char" style="animation-delay: 1.9s"><strong>Escalating Absurdity:</strong> The conflict grows from a street bite into a legendary, exaggerated standoff.</div><br><br><strong style="text-decoration: underline;">TONE & TYPE</strong><br>A short-form situational comedy grounded in physical humor and exaggerated dramatic parody. It explores the thin line where human logic meets animal instinct.`
+    c: `<strong style="text-decoration: underline;">CONCEPT</strong><br>A man attempts to break up a street dog fight and gets bitten. In a moment of impulsive rage, he bites the dog back. The incident lands both in separate hospitals, receiving treatment for each other's bite wounds.<br><br><strong style="text-decoration: underline;">CORE HOOK</strong><br>A human and a dog begin to mirror each other's behavior, crossing the line between instinct and reason. The situation spirals into an absurd rivalry as they blame each other for their mutual suffering.<br><br><strong style="text-decoration: underline;">SCENARIO BEATS</strong><br><br><div class="char" style="animation-delay: 1.0s"><strong>The Mirror Effect:</strong> Both characters are shown in parallel hospital beds, dealing with painful injections and restrictive cones.</div><br><div class="char" style="animation-delay: 1.3s"><strong>The Rivalry:</strong> What starts as a freak accident becomes a personal vendetta, with each side feeling like the true victim.</div><br><div class="char" style="animation-delay: 1.6s"><strong>Role Reversal:</strong> The man begins to adopt canine-like aggression, while the dog displays human-like spite and dramatic flair.</div><br><div class="char" style="animation-delay: 1.9s"><strong>Escalating Absurdity:</strong> The conflict grows from a street bite into a legendary, exaggerated standoff.</div><br><br><strong style="text-decoration: underline;">TONE & TYPE</strong><br>A short-form situational comedy grounded in physical humor and exaggerated dramatic parody. It explores the thin line where human logic meets animal instinct.`
 },
 {
     t: 'Extra Step', 
     tag: 'PARALLEL NARRATIVE', 
-    c: `<strong style="text-decoration: underline;">CONCEPT</strong><br>A man’s ordinary visit to a barber unfolds in parallel with a dramatic treasure hunt adventure. As the haircut progresses, each step mirrors a stage of the quest — hair wash becomes river crossing, trimming becomes obstacle navigation, final styling becomes the approach to the treasure chamber.<br><br><strong style="text-decoration: underline;">NARRATIVE MECHANISM</strong><br>The story uses synchronized parallel editing and visual symmetry. Each world reflects the same pattern: Progress → Confidence → Excess → Regret.<br><br><strong style="text-decoration: underline;">CHARACTERS</strong><br><br><div class="char" style="animation-delay: 1.0s"><strong>The Protagonist:</strong> An ordinary man seeking a change, caught between two worlds.</div><br><div class="char" style="animation-delay: 1.3s"><strong>The Friend:</strong> The catalyst of greed. In both worlds, he pushes the hero to go "just a little more."</div><br><div class="char" style="animation-delay: 1.6s"><strong>The Barber / The Guardian:</strong> The executors of the hero's fate. One holds a scissor, the other a sword.</div><br><br><strong style="text-decoration: underline;">CLIMAX</strong><br>In the fantasy world, the treasure chest is empty. In reality, the haircut is ruined. The hero stares at both outcomes with the same expression — disappointment born from overreaching.<br><br><strong style="text-decoration: underline;">THEME</strong><br>The pursuit of “more” often destroys what was already enough.`
+    c: `<strong style="text-decoration: underline;">CONCEPT</strong><br>A man's ordinary visit to a barber unfolds in parallel with a dramatic treasure hunt adventure. As the haircut progresses, each step mirrors a stage of the quest — hair wash becomes river crossing, trimming becomes obstacle navigation, final styling becomes the approach to the treasure chamber.<br><br><strong style="text-decoration: underline;">NARRATIVE MECHANISM</strong><br>The story uses synchronized parallel editing and visual symmetry. Each world reflects the same pattern: Progress → Confidence → Excess → Regret.<br><br><strong style="text-decoration: underline;">CHARACTERS</strong><br><br><div class="char" style="animation-delay: 1.0s"><strong>The Protagonist:</strong> An ordinary man seeking a change, caught between two worlds.</div><br><div class="char" style="animation-delay: 1.3s"><strong>The Friend:</strong> The catalyst of greed. In both worlds, he pushes the hero to go "just a little more."</div><br><div class="char" style="animation-delay: 1.6s"><strong>The Barber / The Guardian:</strong> The executors of the hero's fate. One holds a scissor, the other a sword.</div><br><br><strong style="text-decoration: underline;">CLIMAX</strong><br>In the fantasy world, the treasure chest is empty. In reality, the haircut is ruined. The hero stares at both outcomes with the same expression — disappointment born from overreaching.<br><br><strong style="text-decoration: underline;">THEME</strong><br>The pursuit of "more" often destroys what was already enough.`
 },
                     
                 ],
@@ -490,13 +513,12 @@
             const p = papers[Math.floor(Math.random()*papers.length)];
             p.userData.isZoomed = true;
 
-            // FIXED TIMING: Paper animation runs, THEN page fades in
             gsap.to(p.position, { x: 0, y: 0, z: isMobile ? 60 : 45, duration: 1.2, ease: "power2.out" });
             gsap.to(p.rotation, { x: 0, y: 0, z: 0, duration: 1 });
 
             const page = document.getElementById('reading-page');
             gsap.set(page, { display: 'flex' });
-            gsap.to(page, { opacity: 1, duration: 0.6, delay: 0.8 }); // Added delay so page waits for paper
+            gsap.to(page, { opacity: 1, duration: 0.6, delay: 0.8 });
         }
 
         function closeReadingPage() {
@@ -514,26 +536,26 @@
         function toggleMode() { 
             document.body.classList.toggle('night-mode');
             document.getElementById('mode-icon').classList.toggle('fa-sun');
-            function updateStatus(newText) {
-    const statusElement = document.getElementById('current-activity');
-    let i = 0;
-    statusElement.innerHTML = ''; // Clear current text
-    
-    function typeWriter() {
-        if (i < newText.length) {
-            statusElement.innerHTML += newText.charAt(i);
-            i++;
-            setTimeout(typeWriter, 50); // Speed of typing
+            document.getElementById('mode-icon').classList.toggle('fa-moon');
         }
-    }
-    typeWriter();
-}
 
-// Example: Change status 5 seconds after the page loads
-setTimeout(() => {
-    updateStatus("PARSING SYSTEM ARCHIVES...");
-}, 5000);
+        function updateStatus(newText) {
+            const statusElement = document.getElementById('current-activity');
+            let i = 0;
+            statusElement.innerHTML = '';
+            function typeWriter() {
+                if (i < newText.length) {
+                    statusElement.innerHTML += newText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            typeWriter();
         }
+
+        setTimeout(() => {
+            updateStatus("PARSING SYSTEM ARCHIVES...");
+        }, 5000);
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
@@ -545,31 +567,30 @@ setTimeout(() => {
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
-        // Add this inside your script where openFullPage or other story logic is
-const stories = {
-    'car-life': {
-        t: 'Life Through a Car',
-        tag: 'SYMBOLIC NARRATIVE',
-        c: `<strong>CONCEPT OVERVIEW</strong><br>Life is an engine that never stops, even when the bodywork is dented.<br><br>
-            <strong>Phase 1: The Toy Car (Innocence)</strong><br> the toy car breaks—shattering the illusion of a perfect world.<br><br>
-            <strong>Phase 2: The Garage Project (Adolescence)</strong><br>The car is no longer pristine; it carries the weight of memory.<br><br>
-            <strong>Phase 3: The Full Build (Responsibility)</strong><br>Family, friends, and the grind of a job. The car is finally complete and powerful. It’s covered in dents from struggles and scratches from sacrifices.<br><br>
-            <strong>The Conclusion</strong><br>The imperfect car starts with a roar and moves forward. It’s not about being flawless; it’s about the fact that despite the damage, the journey continues.`
-    }
-};
 
-// Simplified story opening function
-function openStory(id) {
-    const data = stories[id];
-    if (data) {
-        document.getElementById('page-title').innerText = data.t;
-        document.getElementById('page-tag').innerText = data.tag;
-        document.getElementById('page-content').innerHTML = data.c;
-        const readingPage = document.getElementById('reading-page');
-        readingPage.style.display = 'flex';
-        gsap.to(readingPage, { opacity: 1, duration: 0.5 });
-    }
-}
+        const stories = {
+            'car-life': {
+                t: 'Life Through a Car',
+                tag: 'SYMBOLIC NARRATIVE',
+                c: `<strong>CONCEPT OVERVIEW</strong><br>Life is an engine that never stops, even when the bodywork is dented.<br><br>
+                    <strong>Phase 1: The Toy Car (Innocence)</strong><br> the toy car breaks—shattering the illusion of a perfect world.<br><br>
+                    <strong>Phase 2: The Garage Project (Adolescence)</strong><br>The car is no longer pristine; it carries the weight of memory.<br><br>
+                    <strong>Phase 3: The Full Build (Responsibility)</strong><br>Family, friends, and the grind of a job. The car is finally complete and powerful. It's covered in dents from struggles and scratches from sacrifices.<br><br>
+                    <strong>The Conclusion</strong><br>The imperfect car starts with a roar and moves forward. It's not about being flawless; it's about the fact that despite the damage, the journey continues.`
+            }
+        };
+
+        function openStory(id) {
+            const data = stories[id];
+            if (data) {
+                document.getElementById('page-title').innerText = data.t;
+                document.getElementById('page-tag').innerText = data.tag;
+                document.getElementById('page-content').innerHTML = data.c;
+                const readingPage = document.getElementById('reading-page');
+                readingPage.style.display = 'flex';
+                gsap.to(readingPage, { opacity: 1, duration: 0.5 });
+            }
+        }
 
     </script>
 </body>
