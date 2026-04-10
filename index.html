@@ -246,7 +246,7 @@
             inset: 0;
             background: inherit;
             border: inherit;
-            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
             transform-origin: left center;
             transform: rotateY(0deg);
             transition: transform 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -259,13 +259,11 @@
             top: 20px;
             left: 15px;
             right: 15px;
-            background: repeating-linear-gradient(
-                to bottom, 
-                transparent, 
-                transparent 10px, 
-                rgba(0, 0, 0, 0.05) 10px, 
-                rgba(0, 0, 0, 0.05) 11px
-            );
+            background: repeating-linear-gradient(to bottom,
+                    transparent,
+                    transparent 10px,
+                    rgba(0, 0, 0, 0.05) 10px,
+                    rgba(0, 0, 0, 0.05) 11px);
             height: 100px;
             z-index: 1;
         }
@@ -286,9 +284,9 @@
 
         .mini-paper:hover {
             transform: translateY(-20px) translateX(10px) scale(1.1);
-            box-shadow: 
-                -10px 10px 30px rgba(0,0,0,0.25),
-                15px 25px 50px rgba(0,0,0,0.2);
+            box-shadow:
+                -10px 10px 30px rgba(0, 0, 0, 0.25),
+                15px 25px 50px rgba(0, 0, 0, 0.2);
             border-color: var(--accent);
             z-index: 10;
         }
@@ -488,7 +486,7 @@
             display: none;
             flex-direction: column;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
             border-radius: 8px;
             transform: scale(0.9);
             opacity: 0;
@@ -526,12 +524,18 @@
         }
 
         @keyframes scan {
-            0% { top: 0; }
-            100% { top: 100%; }
+            0% {
+                top: 0;
+            }
+
+            100% {
+                top: 100%;
+            }
         }
 
         #site-preview iframe {
-            width: 1280px; /* High res scale down */
+            width: 1280px;
+            /* High res scale down */
             height: 800px;
             border: none;
             transform: scale(0.25);
@@ -600,7 +604,11 @@
                     <h3 style="font-family:'Montserrat'; letter-spacing:2px; text-transform:uppercase; font-size:14px;">
                         Professional</h3>
                     <p style="margin-top:20px; font-size:22px; line-height:1.4;">
-                        IP & Content Operations professional at Fametoonz specializing in story architecture, IP structuring, and scalable content systems. <strong style="color:var(--accent);">Trained AI categorization systems by structuring 26K+ content pieces for machine learning workflows.</strong> Experienced in narrative framework design, metadata organization, and distribution-ready asset preparation.
+                        IP & Content Operations professional at Fametoonz specializing in story architecture, IP
+                        structuring, and scalable content systems. <strong style="color:var(--accent);">Trained AI
+                            categorization systems by structuring 26K+ content pieces for machine learning
+                            workflows.</strong> Experienced in narrative framework design, metadata organization, and
+                        distribution-ready asset preparation.
                     </p>
                 </div>
 
@@ -643,29 +651,7 @@
             </div>
         </section>
 
-        <section id="scale-stats" style="background: var(--ink); color: var(--paper); padding:60px 10%;">
-            <span class="tag" style="color: var(--accent);">OPERATIONAL SCALE</span>
-            <h2 style="font-size: 40px; margin-bottom:40px;">Systems Built for Volume</h2>
-            
-            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:30px; max-width:1000px; margin:0 auto;">
-                <div class="stat-card">
-                    <h3 style="font-size:60px; color:var(--accent); font-family:'Montserrat';">26K+</h3>
-                    <p style="font-family:'Montserrat'; font-size:12px; letter-spacing:2px;">TOTAL ASSETS MANAGED</p>
-                </div>
-                <div class="stat-card">
-                    <h3 style="font-size:60px; color:var(--accent); font-family:'Montserrat';">10K+</h3>
-                    <p style="font-family:'Montserrat'; font-size:12px; letter-spacing:2px;">VERTICAL SHORTS</p>
-                </div>
-                <div class="stat-card">
-                    <h3 style="font-size:60px; color:var(--accent); font-family:'Montserrat';">36</h3>
-                    <p style="font-family:'Montserrat'; font-size:12px; letter-spacing:2px;">EPISODES ARCHITECTED</p>
-                </div>
-                <div class="stat-card">
-                    <h3 style="font-size:60px; color:var(--accent); font-family:'Montserrat';">9</h3>
-                    <p style="font-family:'Montserrat'; font-size:12px; letter-spacing:2px;">LIVE PRODUCTS BUILT</p>
-                </div>
-            </div>
-        </section>
+
 
         <section class="resume-bridge">
             <span class="tag">03. Credentials</span>
@@ -675,12 +661,7 @@
             </button>
         </section>
 
-        <div style="position:fixed; bottom:30px; right:30px; z-index:9999;">
-            <button class="btn" onclick="window.open('https://files.catbox.moe/bx7uus.pdf', '_blank')" 
-                    style="background:var(--accent); color:white; border:none; box-shadow:0 10px 30px rgba(0,0,0,0.3);">
-                <i class="fa-solid fa-download"></i> RESUME
-            </button>
-        </div>
+
 
         <section id="contact">
             <span class="tag">04. Get in touch</span>
@@ -716,7 +697,8 @@
 
                 <div class="lab-column">
                     <div class="column-header"><i class="fa-solid fa-code"></i> Digital Builds</div>
-                    <div class="split-card" data-preview="https://nikhilgowtham11.github.io/task/" onclick="window.open('https://nikhilgowtham11.github.io/task/', '_blank')">
+                    <div class="split-card" data-preview="https://nikhilgowtham11.github.io/task/"
+                        onclick="window.open('https://nikhilgowtham11.github.io/task/', '_blank')">
                         <h3>TASKS</h3>
                         <p>Team tasks follow </p>
                         <span class="action-text">> launch_site.live</span>
@@ -729,10 +711,17 @@
                     </div>
 
 
-                    <div class="split-card" data-preview="https://nikhilgowtham11.github.io/DMARK-Captures/dmark-captures.html"
+                    <div class="split-card"
+                        data-preview="https://nikhilgowtham11.github.io/DMARK-Captures/dmark-captures.html"
                         onclick="window.open('https://nikhilgowtham11.github.io/DMARK-Captures/dmark-captures.html')">
                         <h3>DMARK Capture</h3>
                         <p>Professional Photography Studio</p>
+                        <span class="action-text">> launch_site.live</span>
+                    </div>
+                     <div class="split-card" data-preview="https://for-retail.github.io/clothing/"
+                        onclick="window.open('https://for-retail.github.io/clothing/')">
+                        <h3>Sangeetha Vasthralayam</h3>
+                        <p>Premium e-commerce clothing store .</p>
                         <span class="action-text">> launch_site.live</span>
                     </div>
 
@@ -763,18 +752,21 @@
                         <span class="action-text">> launch_site.live</span>
                     </div>
 
-                    <div class="split-card" data-preview="https://for-retail.github.io/amara/" onclick="window.open('https://for-retail.github.io/amara/', '_blank')">
+                    <div class="split-card" data-preview="https://for-retail.github.io/amara/"
+                        onclick="window.open('https://for-retail.github.io/amara/', '_blank')">
                         <h3>Amara</h3>
                         <p>Sophisticated brand landing page with clean typography and a premium visual identity.</p>
                         <span class="action-text">> launch_site.live</span>
                     </div>
-                    <div class="split-card" data-preview="https://for-retail.github.io/yoga/" onclick="window.open('https://for-retail.github.io/yoga/', '_blank')">
+                    <div class="split-card" data-preview="https://for-retail.github.io/yoga/"
+                        onclick="window.open('https://for-retail.github.io/yoga/', '_blank')">
                         <h3>Anusha Mindful Yoga</h3>
                         <p>Minimalist yoga landing page featuring organic animations and serene aesthetics.</p>
                         <span class="action-text">> launch_site.live</span>
                     </div>
 
-                    <div class="split-card" data-preview="https://for-retail.github.io/realestate/" onclick="window.open('https://for-retail.github.io/realestate/', '_blank')">
+                    <div class="split-card" data-preview="https://for-retail.github.io/realestate/"
+                        onclick="window.open('https://for-retail.github.io/realestate/', '_blank')">
                         <h3>SLN Dasari Ventures</h3>
                         <p>Real estate marketing platform designed for premium property and venture listings.</p>
                         <span class="action-text">> launch_site.live</span>
@@ -988,9 +980,9 @@
                 previewUrlText.innerText = url.replace('https://', '').toUpperCase();
                 previewIframe.src = url;
                 previewLoading.style.display = 'flex';
-                
+
                 sitePreview.classList.add('active');
-                
+
                 // Position initial
                 updatePreviewPos(e);
             });
@@ -1034,4 +1026,5 @@
         }
     </script>
 </body>
+
 </html>
