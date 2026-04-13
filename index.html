@@ -890,6 +890,61 @@
   }
 
 
+        /* Spiderman Hanging Animation */
+        @keyframes spiderman-swing {
+            0% { transform: translateX(-50%) translateY(-20px) rotate(2deg); }
+            30% { transform: translateX(-50%) translateY(0) rotate(5deg); }
+            50% { transform: translateX(-50%) rotate(-5deg); }
+            75% { transform: translateX(-50%) rotate(5deg); }
+            100% { transform: translateX(-50%) translateY(-20px) rotate(2deg); }
+        }
+
+        .spiderman-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .spiderman-hanging {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            width: 150px; /* Slightly increased size */
+            height: auto;
+            pointer-events: none;
+            animation: spiderman-swing 5s infinite ease-in-out;
+            transform-origin: top center;
+            z-index: 100;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
+        }
+
+        .web-line {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            width: 1px;
+            height: 60px;
+            background: var(--accent); /* Matches the site accent */
+            opacity: 0.5;
+            transform: translateX(-50%);
+            z-index: 99;
+        }
+
+        .resume-bridge {
+            position: relative;
+            overflow: visible;
+            transition: all 0.5s ease;
+        }
+
+        .resume-bridge .tag {
+            position: relative;
+            z-index: 2;
+        }
+
+        .resume-bridge h2 {
+            position: relative;
+            z-index: 2;
+        }
     </style>
 </head>
 
@@ -1356,17 +1411,23 @@
         <!-- RESUME -->
         <section class="resume-bridge">
             <span class="tag">04. Credentials</span>
-            <button class="btn" onclick="window.open('https://files.catbox.moe/bx7uus.pdf', '_blank')"
-                style="background:var(--accent); color:white; border:none; cursor:pointer;">
-                <i class="fa-solid fa-file-pdf"></i> RETRIEVE RESUME.PDF
-            </button>
+            <div class="spiderman-wrapper">
+                <div class="web-line"></div>
+                <button class="btn" onclick="window.open('https://files.catbox.moe/bx7uus.pdf', '_blank')"
+                    style="background:var(--accent); color:white; border:none; cursor:pointer; position: relative; z-index: 101;">
+                    <i class="fa-solid fa-file-pdf"></i> RETRIEVE RESUME.PDF
+                </button>
+                <img src="https://i.postimg.cc/5tmzT0tv/15b98f4047091fe00d5c44438e9f9dc6-removebg-preview.png" 
+                     alt="img-spiderman" class="spiderman-hanging">
+            </div>
         </section>
 
         <!-- CONTACT -->
         <section id="contact">
             <span class="tag">05. Get in touch</span>
             <h2>matchalanikhilgowtham@gmail.com</h2>
-            <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center;">
+
+            <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-top: 30px;">
                 <a href="tel:6303594257" class="btn"><i class="fa-solid fa-phone"></i> VOICE</a>
                 <a href="https://wa.me/916303594257" class="btn"><i class="fa-brands fa-whatsapp"></i> WHATSAPP</a>
             </div>
