@@ -55,27 +55,13 @@
         }
 
         @keyframes blink-cursor {
-
-            from,
-            to {
-                border-color: transparent
-            }
-
-            50% {
-                border-color: var(--accent);
-            }
+            from, to { border-color: transparent }
+            50% { border-color: var(--accent); }
         }
 
         @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 0.8;
-            }
-
-            100% {
-                transform: scale(3.5);
-                opacity: 0;
-            }
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(3.5); opacity: 0; }
         }
 
         @media (max-width: 768px) {
@@ -87,36 +73,16 @@
             }
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         @media (pointer: fine) {
-
-            body,
-            a,
-            button,
-            .btn,
-            .mini-paper {
-                cursor: none;
-            }
-
-            #cursor {
-                display: block;
-            }
+            body, a, button, .btn, .mini-paper { cursor: none; }
+            #cursor { display: block; }
         }
 
         @media (pointer: coarse) {
-            #cursor {
-                display: none;
-            }
-
-            * {
-                cursor: auto !important;
-            }
+            #cursor { display: none; }
+            * { cursor: auto !important; }
         }
 
         body {
@@ -278,24 +244,17 @@
             z-index: 3;
         }
 
-        .mini-paper:hover::before {
-            transform: rotateY(-160deg);
-        }
+        .mini-paper:hover::before { transform: rotateY(-160deg); }
 
         .mini-paper:hover {
             transform: translateY(-20px) translateX(10px) scale(1.1);
-            box-shadow:
-                -10px 10px 30px rgba(0, 0, 0, 0.25),
-                15px 25px 50px rgba(0, 0, 0, 0.2);
+            box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.25), 15px 25px 50px rgba(0, 0, 0, 0.2);
             border-color: var(--accent);
             z-index: 10;
         }
 
-        .mini-paper.blue-p {
-            background: #e3e8f0;
-        }
+        .mini-paper.blue-p { background: #e3e8f0; }
 
-        /* SPLIT LAYOUT FOR LAB SECTION */
         .lab-split-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -336,9 +295,7 @@
             text-align: left;
         }
 
-        .split-card[data-preview] {
-            border-left: 3px solid var(--accent);
-        }
+        .split-card[data-preview] { border-left: 3px solid var(--accent); }
 
         .split-card:hover {
             transform: translateY(-5px);
@@ -368,14 +325,10 @@
             color: var(--accent);
         }
 
-        /* Mobile Responsive */
         @media (max-width: 850px) {
-            .lab-split-container {
-                grid-template-columns: 1fr;
-            }
+            .lab-split-container { grid-template-columns: 1fr; }
         }
 
-        /* ADDED: OTHERS/LAB GRID */
         .others-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -454,14 +407,6 @@
             margin: 40px 0;
         }
 
-        .resume-bridge {
-            width: 100%;
-            border-top: 1px dashed var(--accent);
-            border-bottom: 1px dashed var(--accent);
-            padding: 100px 0;
-            margin: 40px 0;
-        }
-
         #contact h2 {
             font-family: 'Montserrat', sans-serif;
             text-transform: lowercase !important;
@@ -473,7 +418,291 @@
             opacity: 0.9;
         }
 
-        /* SITE PREVIEW STYLES */
+        /* =============================================
+           INSTAGRAM POST CARDS — Digital Builds Column
+           ============================================= */
+
+        .ig-builds-column {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .ig-post {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.08);
+            box-shadow: 4px 4px 0px var(--ink);
+            font-family: 'Montserrat', sans-serif;
+            transition: 0.3s;
+        }
+
+        .ig-post:hover {
+            transform: translateY(-4px);
+            box-shadow: 8px 8px 0px var(--ink);
+        }
+
+        /* header */
+        .ig-post-header {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding: 10px 12px 8px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .ig-av {
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            background: var(--ink);
+            color: var(--paper);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 11px; font-weight: 700;
+            flex-shrink: 0;
+            font-family: 'Montserrat';
+        }
+
+        .ig-post-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: #1a1a1a;
+            line-height: 1.2;
+        }
+
+        .ig-post-by {
+            font-size: 9px;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+
+        .ig-post-dots {
+            margin-left: auto;
+            font-size: 16px;
+            color: #aaa;
+            line-height: 1;
+        }
+
+        /* image zone */
+        .ig-img-zone {
+            width: 100%;
+            aspect-ratio: 1;
+            position: relative;
+            overflow: hidden;
+            background: #ccc7bc;
+            cursor: pointer;
+        }
+
+        .ig-img-zone iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 1000px; height: 1000px;
+            border: none;
+            transform: scale(0.3);
+            transform-origin: top left;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .ig-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,6,0,0.88) 42%, rgba(0,0,0,0.05) 100%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 14px;
+        }
+
+        .ig-overlay-tag {
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #dda15e;
+            background: rgba(221,161,94,0.15);
+            border: 1px solid rgba(221,161,94,0.4);
+            padding: 2px 7px;
+            display: inline-block;
+            margin-bottom: 7px;
+            width: fit-content;
+        }
+
+        .ig-overlay-headline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
+
+        .ig-overlay-headline em {
+            font-style: italic;
+            color: #dda15e;
+        }
+
+        .ig-overlay-sub {
+            font-size: 9px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .ig-overlay-url {
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            background: #dda15e;
+            color: #1a1a1a;
+            padding: 3px 9px;
+            display: inline-block;
+            width: fit-content;
+            text-decoration: none;
+        }
+
+        /* dots */
+        .ig-dot-row {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            padding: 7px 0 3px;
+        }
+
+        .ig-d {
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: #ddd;
+        }
+
+        .ig-d.on { background: #3897f0; }
+
+        /* actions */
+        .ig-post-actions {
+            display: flex;
+            align-items: center;
+            padding: 5px 12px 2px;
+            gap: 10px;
+            font-size: 17px;
+        }
+
+        .ig-post-save { margin-left: auto; }
+
+        .ig-post-likes {
+            padding: 1px 12px 2px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        /* caption */
+        .ig-post-caption {
+            padding: 0 12px 12px;
+            font-size: 11px;
+            color: #1a1a1a;
+            line-height: 1.55;
+        }
+
+        .ig-post-caption b {
+            font-weight: 700;
+        }
+
+        .ig-post-hashtags {
+            color: #00376b;
+            font-size: 10px;
+            margin-top: 5px;
+            line-height: 1.6;
+        }
+
+        /* =============================================
+           CAROUSEL STYLES
+           ============================================= */
+        .carousel-section {
+            width: 100%;
+            max-width: 420px;
+            margin: 40px auto 0;
+            position: relative;
+        }
+
+        .carousel-track-wrap {
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            min-width: 100%;
+        }
+
+        .carousel-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .carousel-btn {
+            width: 38px; height: 38px;
+            border: 1.5px solid var(--ink);
+            background: var(--card);
+            color: var(--ink);
+            font-size: 15px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            backdrop-filter: blur(5px);
+            box-shadow: 3px 3px 0px var(--ink);
+        }
+
+        .carousel-btn:hover {
+            background: var(--ink);
+            color: var(--paper);
+            transform: translate(-2px,-2px);
+            box-shadow: 5px 5px 0px var(--accent);
+        }
+
+        .carousel-counter {
+            font-family: 'Montserrat';
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: var(--accent);
+            min-width: 56px;
+            text-align: center;
+        }
+
+        .carousel-dots { display: flex; gap: 5px; align-items: center; }
+
+        .c-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.18);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .c-dot.active {
+            background: var(--accent);
+            width: 16px;
+            border-radius: 3px;
+        }
+
+        body.night-mode .c-dot { background: rgba(255,255,255,0.2); }
+        body.night-mode .c-dot.active { background: var(--accent); }
+
+        /* each post IS the slide */
+        .carousel-slide.ig-builds-column { display: flex; flex-direction: column; }
+
+        /* =============================================
+           OLD site-preview (kept for Narrative Scripts)
+           ============================================= */
         #site-preview {
             position: fixed;
             width: 320px;
@@ -513,8 +742,7 @@
 
         #site-preview .scanner-line {
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             width: 100%;
             height: 2px;
             background: var(--accent);
@@ -524,18 +752,12 @@
         }
 
         @keyframes scan {
-            0% {
-                top: 0;
-            }
-
-            100% {
-                top: 100%;
-            }
+            0% { top: 0; }
+            100% { top: 100%; }
         }
 
         #site-preview iframe {
             width: 1280px;
-            /* High res scale down */
             height: 800px;
             border: none;
             transform: scale(0.25);
@@ -566,7 +788,6 @@
 
 <body>
 
-
     <div id="cursor"></div>
     <div id="mode-switch" onclick="toggleMode()"><i class="fa-solid fa-moon" id="mode-icon"></i></div>
     <div id="canvas-container"></div>
@@ -585,56 +806,22 @@
     </div>
 
     <div class="wrapper">
+
+        <!-- HERO -->
         <section id="hero">
             <span class="tag">Narrative Systems & Content Architecture</span>
             <h1>Nikhil Gowtham</h1>
-            <p style="font-family:'Montserrat'; letter-spacing:6px; font-size:12px; margin-top:20px; font-weight: 600;">
-                Story Strategist</p>
-            <p style="font-family:'Montserrat'; font-size:10px; margin-top:15px; opacity:0.7; letter-spacing:3px;">
-                Building narrative systems that scale from concept to distribution
-            </p>
+            <p style="font-family:'Montserrat'; letter-spacing:6px; font-size:12px; margin-top:20px; font-weight: 600;">Story Strategist</p>
+            <p style="font-family:'Montserrat'; font-size:10px; margin-top:15px; opacity:0.7; letter-spacing:3px;">Building narrative systems that scale from concept to distribution</p>
         </section>
 
-        <section id="identity">
-            <span class="tag">01. Protocols</span>
-
-            <div class="info-grid">
-
-                <div class="info-card">
-                    <h3 style="font-family:'Montserrat'; letter-spacing:2px; text-transform:uppercase; font-size:14px;">
-                        Professional</h3>
-                    <p style="margin-top:20px; font-size:22px; line-height:1.4;">
-                        IP & Content Operations professional at Fametoonz specializing in story architecture, IP
-                        structuring, and scalable content systems. <strong style="color:var(--accent);">Trained AI
-                            categorization systems by structuring 26K+ content pieces for machine learning
-                            workflows.</strong> Experienced in narrative framework design, metadata organization, and
-                        distribution-ready asset preparation.
-                    </p>
-                </div>
-
-                <div class="info-card">
-                    <h3 style="font-family:'Montserrat'; letter-spacing:2px; text-transform:uppercase; font-size:14px;">
-                        Personal</h3>
-                    <p style="margin-top:20px; font-size:22px; line-height:1.4;">
-                        A storytelling and technology enthusiast focused on building structured creative systems.
-                        Certified in AWS Cloud fundamentals and trained in full-stack development. Fast learner,
-                        adaptive thinker, and concept-driven creator currently developing original narratives and
-                        assisting projects in story design, editing, and web systems.
-                    </p>
-                </div>
-
-            </div>
-        </section>
-
+        <!-- VAULT -->
         <section id="id-vault">
-            <span class="tag">02. ARCHIVE</span>
+            <span class="tag">01. Archive</span>
             <h2 style="font-size: 50px; font-style: italic; margin-bottom: 10px;">The Vault</h2>
-            <p style="font-family:'Montserrat'; font-size:12px; margin-bottom:40px; opacity:0.8;">Concept Architectures
-            </p>
+            <p style="font-family:'Montserrat'; font-size:12px; margin-bottom:40px; opacity:0.8;">Concept Architectures</p>
 
-            <h3
-                style="font-family:'Montserrat'; letter-spacing:3px; font-size:14px; margin-bottom:20px; text-transform:uppercase;">
-                Story Archives</h3>
+            <h3 style="font-family:'Montserrat'; letter-spacing:3px; font-size:14px; margin-bottom:20px; text-transform:uppercase;">Story Archives</h3>
             <div class="paper-row">
                 <div class="mini-paper story-1" onclick="openFullPage('stories', 0)"><span>Book of Balance</span></div>
                 <div class="mini-paper story-2" onclick="openFullPage('stories', 1)"><span>MaHi</span></div>
@@ -642,29 +829,237 @@
                 <div class="mini-paper story-4" onclick="openFullPage('stories', 3)"><span>Extra Step</span></div>
             </div>
 
-            <h3
-                style="font-family:'Montserrat'; letter-spacing:3px; font-size:14px; margin:40px 0 20px; text-transform:uppercase;">
-                Game Blueprints</h3>
+            <h3 style="font-family:'Montserrat'; letter-spacing:3px; font-size:14px; margin:40px 0 20px; text-transform:uppercase;">Game Blueprints</h3>
             <div class="paper-row">
                 <div class="mini-paper blue-p" onclick="openFullPage('games', 0)"><span>Genview</span></div>
                 <div class="mini-paper blue-p" onclick="openFullPage('games', 1)"><span>Genview V2</span></div>
             </div>
         </section>
 
+        <!-- OTHERS / MODULES -->
+        <section id="others" style="min-height:unset; padding: 80px 0; height:auto; opacity:1; transform:none;">
+            <span class="tag">02. Modules</span>
+            <h2 style="font-size: 32px; font-style: italic; margin-bottom: 10px;">Digital Builds</h2>
+            <p style="font-family:'Montserrat'; font-size:10px; letter-spacing:3px; color:var(--accent); margin-bottom:30px; opacity:0.7;">10 SITES · SCROLL TO EXPLORE</p>
 
+            <div style="width:100%; overflow-x:auto; padding: 20px 40px 40px; -webkit-overflow-scrolling:touch; scrollbar-width:thin; scrollbar-color:var(--accent) transparent;">
+                <div style="display:flex; gap:22px; width:max-content;">
 
+                    <!-- TASKS -->
+                    <div class="ig-post" style="width:300px; flex-shrink:0;">
+                        <div class="ig-post-header"><div class="ig-av">N</div><div><div class="ig-post-name">tasks</div><div class="ig-post-by">by nikhil gowtham</div></div><div class="ig-post-dots">···</div></div>
+                        <div class="ig-img-zone" onclick="window.open('https://sprightly-naiad-610aeb.netlify.app/','_blank')">
+                            <iframe src="https://sprightly-naiad-610aeb.netlify.app/" loading="lazy"></iframe>
+                            <div class="ig-img-overlay">
+                                <span class="ig-overlay-tag">Team · Productivity</span>
+                                <div class="ig-overlay-headline">Built for teams<br>that move <em>fast.</em></div>
+                                <div class="ig-overlay-sub">Clean task tracking — less chaos, more clarity.</div>
+                                <a class="ig-overlay-url" href="https://sprightly-naiad-610aeb.netlify.app/" target="_blank">sprightly-naiad.netlify.app</a>
+                            </div>
+                        </div>
+                        <div class="ig-dot-row"><div class="ig-d on"></div><div class="ig-d"></div><div class="ig-d"></div></div>
+                        <div class="ig-post-actions"><span>🤍</span><span>💬</span><span>📤</span><span class="ig-post-save">🔖</span></div>
+                        <div class="ig-post-likes">1,483 likes</div>
+                        <div class="ig-post-caption"><b>nikhilgowtham</b> Teams don't fail on strategy. They fail on follow-through.<div class="ig-post-hashtags">#TaskManagement #WebApp #NikhilGowtham #DigitalBuilds</div></div>
+                    </div>
+
+                    <!-- SAMALA -->
+                    <div class="ig-post" style="width:300px; flex-shrink:0;">
+                        <div class="ig-post-header"><div class="ig-av">N</div><div><div class="ig-post-name">samala</div><div class="ig-post-by">by nikhil gowtham</div></div><div class="ig-post-dots">···</div></div>
+                        <div class="ig-img-zone" onclick="window.open('https://nikhilgowtham11.github.io/samala/','_blank')">
+                            <iframe src="https://nikhilgowtham11.github.io/samala/" loading="lazy"></iframe>
+                            <div class="ig-img-overlay">
+                                <span class="ig-overlay-tag">Fashion · E-Commerce</span>
+                                <div class="ig-overlay-headline">Wear the <em>story.</em></div>
+                                <div class="ig-overlay-sub">Premium clothing store — style speaks before words do.</div>
+                                <a class="ig-overlay-url" href="https://nikhilgowtham11.github.io/samala/" target="_blank">nikhilgowtham11.github.io/samala</a>
+                            </div>
+                        </div>
+                        <div class="ig-dot-row"><div class="ig-d on"></div><div class="ig-d"></div><div class="ig-d"></div></div>
+                        <div class="ig-post-actions"><span>🤍</span><span>💬</span><span>📤</span><span class="ig-post-save">🔖</span></div>
+                        <div class="ig-post-likes">2,104 likes</div>
+                        <div class="ig-post-caption"><b>nikhilgowtham</b> Fashion is a language. This site speaks it fluently.<div class="ig-post-hashtags">#Samala #FashionWebsite #NikhilGowtham #DigitalBuilds</div></div>
+                    </div>
+
+                    <!-- DMARK -->
+                    <div class="ig-post" style="width:300px; flex-shrink:0;">
+                        <div class="ig-post-header"><div class="ig-av">N</div><div><div class="ig-post-name">dmark captures</div><div class="ig-post-by">by nikhil gowtham</div></div><div class="ig-post-dots">···</div></div>
+                        <div class="ig-img-zone" onclick="window.open('https://nikhilgowtham11.github.io/DMARK-Captures/dmark-captures.html','_blank')">
+                            <iframe src="https://nikhilgowtham11.github.io/DMARK-Captures/dmark-captures.html" loading="lazy"></iframe>
+                            <div class="ig-img-overlay">
+                                <span class="ig-overlay-tag">Photography · Studio</span>
+                                <div class="ig-overlay-headline">Every shot.<br><em>Preserved.</em></div>
+                                <div class="ig-overlay-sub">Professional photography studio — images do all the talking.</div>
+                                <a class="ig-overlay-url" href="https://nikhilgowtham11.github.io/DMARK-Captures/dmark-captures.html" target="_blank">Visit DMARK Captures</a>
+                            </div>
+                        </div>
+                        <div class="ig-dot-row"><div class="ig-d on"></div><div class="ig-d"></div><div class="ig-d"></div></div>
+                        <div class="ig-post-actions"><span>🤍</span><span>💬</span><span>📤</span><span class="ig-post-save">🔖</span></div>
+                        <div class="ig-post-likes">1,876 likes</div>
+                        <div class="ig-post-caption"><b>nikhilgowtham</b> A photographer's work deserves a site as sharp as the lens.<div class="ig-post-hashtags">#DMARKCaptures #PhotographyWebsite #NikhilGowtham #DigitalBuilds</div></div>
+                    </div>
+
+                    <!-- SANGEETHA -->
+                    <div class="ig-post" style="width:300px; flex-shrink:0;">
+                        <div class="ig-post-header"><div class="ig-av">N</div><div><div class="ig-post-name">sangeetha vasthralayam</div><div class="ig-post-by">by nikhil gowtham</div></div><div class="ig-post-dots">···</div></div>
+                        <div class="ig-img-zone" onclick="window.open('https://for-retail.github.io/clothing/','_blank')">
+                            <iframe src="https://for-retail.github.io/clothing/" loading="lazy"></iframe>
+                            <div class="ig-img-overlay">
+                                <span class="ig-overlay-tag">Traditional · Clothing</span>
+                                <div class="ig-overlay-headline">Tradition meets<br><em>elegance.</em></div>
+                                <div class="ig-overlay-sub">Premium ethnic wear — heritage at its heart, modern at its core.</div>
+                                <a class="ig-overlay-url" href="https://for-retail.github.io/clothing/" target="_blank">for-retail.github.io/clothing</a>
+                            </div>
+                        </div>
+                        <div class="ig-dot-row"><div class="ig-d on"></div><div class="ig-d"></div><div class="ig-d"></div></div>
+                        <div class="ig-post-actions"><span>🤍</span><span>💬</span><span>📤</span><span class="ig-post-save">🔖</span></div>
+                        <div class="ig-post-likes">1,540 likes</div>
+                        <div class="ig-post-caption"><b>nikhilgowtham</b> Culture woven into every page.<div class="ig-post-hashtags">#SangeethaVasthralayam #EthnicWear #NikhilGowtham #DigitalBuilds</div></div>
+                    </div>
+
+                    <!-- OUR DREAM STUDIO -->
+                    <div class="ig-post" style="width:300px; flex-shrink:0;">
+                        <div class="ig-post-header"><div class="ig-av">N</div><div><div class="ig-post-name">our dream studio</div><div class="ig-post-by">by nikhil gowtham</div></div><div class="ig-post-dots">···</div></div>
+                        <div class="ig-img-zone" onclick="window.open('https://for-retail.github.io/our-dream-studio/','_blank')">
+                            <iframe src="https://for-retail.github.io/our-dream-studio/" loading="lazy"></iframe>
+                            <div class="ig-img-overlay">
+                                <span class="ig-overlay-tag">Creative · Studio</span>
+                                <div class="ig-overlay-headline">Where dreams<br>get a <em>brand.</em></div>
+                                <div class="ig-overlay-sub">Creative studio showcase — polished brand identity.</div>
+                                <a class="ig-overlay-url" href="https://for-retail.github.io/our-dream-studio/" target="_blank">for-retail.github.io/our-dream-studio</a>
+                            </div>
+                        </div>
+                        <div class="ig-dot-row"><div class="ig-d on"></div><div class="ig-d"></div><div class="ig-d"></div></div>
+                        <div class="ig-post-actions"><span>🤍</span><span>💬</span><span>📤</span><span class="ig-post-save">🔖</span></div>
+                        <div class="ig-post-likes">1,290 likes</div>
+                        <div class="ig-post-caption"><b>nikhilgowtham</b> Every studio has a dream. This one now has a digital home.<div class="ig-post-hashtags">#OurDreamStudio #CreativeStudio #NikhilGowtham #DigitalBuilds</div></div>
+                    </div>
+
+                    <!-- ARCHANA STUDIO -->
+                    <div class="ig-post" style="width:300px; flex-shrink:0;">
+                        <div class="ig-post-header"><div class="ig-av">N</div><div><div class="ig-post-name">archana studio</div><div class="ig-post-by">by nikhil gowtham</div></div><div class="ig-post-dots">···</div></div>
+                        <div class="ig-img-zone" onclick="window.open('https://for-retail.github.io/Archana_studio/','_blank')">
+                            <iframe src="https://for-retail.github.io/Archana_studio/" loading="lazy"></iframe>
+                            <div class="ig-img-overlay">
+                                <span class="ig-overlay-tag">Portfolio · Studio</span>
+                                <div class="ig-overlay-headline">Refined.<br><em>Remembered.</em></div>
+                                <div class="ig-overlay-sub">Elegant studio portfolio for creative professionals.</div>
+                                <a class="ig-overlay-url" href="https://for-retail.github.io/Archana_studio/" target="_blank">for-retail.github.io/Archana_studio</a>
+                            </div>
+                        </div>
+                        <div class="ig-dot-row"><div class="ig-d on"></div><div class="ig-d"></div><div class="ig-d"></div></div>
+                        <div class="ig-post-actions"><span>🤍</span><span>💬</span><span>📤</span><span class="ig-post-save">🔖</span></div>
+                        <div class="ig-post-likes">1,108 likes</div>
+                        <div class="ig-post-caption"><b>nikhilgowtham</b> A portfolio should feel as good as the work inside it.<div class="ig-post-hashtags">#ArchanaStudio #PortfolioWebsite #NikhilGowtham #DigitalBuilds</div></div>
+                    </div>
+
+                    <!-- VIRAAMAM CAFÉ -->
+                    <div class="ig-post" style="width:300px; flex-shrink:0;">
+                        <div class="ig-post-header"><div class="ig-av">N</div><div><div class="ig-post-name">viraamam café</div><div class="ig-post-by">by nikhil gowtham</div></div><div class="ig-post-dots">···</div></div>
+                        <div class="ig-img-zone" onclick="window.open('https://for-retail.github.io/Viraamam-Caf-/customer-app.html','_blank')">
+                            <iframe src="https://for-retail.github.io/Viraamam-Caf-/customer-app.html" loading="lazy"></iframe>
+                            <div class="ig-img-overlay">
+                                <span class="ig-overlay-tag">Café · Digital App</span>
+                                <div class="ig-overlay-headline">Order your calm.<br><em>Effortlessly.</em></div>
+                                <div class="ig-overlay-sub">Digital customer app — smooth menu and order flow.</div>
+                                <a class="ig-overlay-url" href="https://for-retail.github.io/Viraamam-Caf-/customer-app.html" target="_blank">Visit Viraamam Café</a>
+                            </div>
+                        </div>
+                        <div class="ig-dot-row"><div class="ig-d on"></div><div class="ig-d"></div><div class="ig-d"></div></div>
+                        <div class="ig-post-actions"><span>🤍</span><span>💬</span><span>📤</span><span class="ig-post-save">🔖</span></div>
+                        <div class="ig-post-likes">1,672 likes</div>
+                        <div class="ig-post-caption"><b>nikhilgowtham</b> Good coffee deserves a great digital experience.<div class="ig-post-hashtags">#ViraamamCafe #CafeApp #NikhilGowtham #DigitalBuilds</div></div>
+                    </div>
+
+                    <!-- AMARA -->
+                    <div class="ig-post" style="width:300px; flex-shrink:0;">
+                        <div class="ig-post-header"><div class="ig-av">N</div><div><div class="ig-post-name">amara</div><div class="ig-post-by">by nikhil gowtham</div></div><div class="ig-post-dots">···</div></div>
+                        <div class="ig-img-zone" onclick="window.open('https://for-retail.github.io/amara/','_blank')">
+                            <iframe src="https://for-retail.github.io/amara/" loading="lazy"></iframe>
+                            <div class="ig-img-overlay">
+                                <span class="ig-overlay-tag">Brand · Landing Page</span>
+                                <div class="ig-overlay-headline">Sophistication<br>in every <em>pixel.</em></div>
+                                <div class="ig-overlay-sub">Premium brand landing page — strong visual identity.</div>
+                                <a class="ig-overlay-url" href="https://for-retail.github.io/amara/" target="_blank">for-retail.github.io/amara</a>
+                            </div>
+                        </div>
+                        <div class="ig-dot-row"><div class="ig-d on"></div><div class="ig-d"></div><div class="ig-d"></div></div>
+                        <div class="ig-post-actions"><span>🤍</span><span>💬</span><span>📤</span><span class="ig-post-save">🔖</span></div>
+                        <div class="ig-post-likes">1,394 likes</div>
+                        <div class="ig-post-caption"><b>nikhilgowtham</b> A brand's first impression lives on its landing page.<div class="ig-post-hashtags">#Amara #BrandLandingPage #NikhilGowtham #DigitalBuilds</div></div>
+                    </div>
+
+                    <!-- ANUSHA YOGA -->
+                    <div class="ig-post" style="width:300px; flex-shrink:0;">
+                        <div class="ig-post-header"><div class="ig-av">N</div><div><div class="ig-post-name">anusha mindful yoga</div><div class="ig-post-by">by nikhil gowtham</div></div><div class="ig-post-dots">···</div></div>
+                        <div class="ig-img-zone" onclick="window.open('https://for-retail.github.io/yoga/','_blank')">
+                            <iframe src="https://for-retail.github.io/yoga/" loading="lazy"></iframe>
+                            <div class="ig-img-overlay">
+                                <span class="ig-overlay-tag">Wellness · Yoga</span>
+                                <div class="ig-overlay-headline">Breathe.<br><em>Be present.</em></div>
+                                <div class="ig-overlay-sub">Minimalist yoga landing page — organic animations, serene aesthetics.</div>
+                                <a class="ig-overlay-url" href="https://for-retail.github.io/yoga/" target="_blank">for-retail.github.io/yoga</a>
+                            </div>
+                        </div>
+                        <div class="ig-dot-row"><div class="ig-d on"></div><div class="ig-d"></div><div class="ig-d"></div></div>
+                        <div class="ig-post-actions"><span>🤍</span><span>💬</span><span>📤</span><span class="ig-post-save">🔖</span></div>
+                        <div class="ig-post-likes">1,821 likes</div>
+                        <div class="ig-post-caption"><b>nikhilgowtham</b> The website should feel like the practice — calm, intentional, present.<div class="ig-post-hashtags">#AnushaMindfulYoga #YogaWebsite #NikhilGowtham #DigitalBuilds</div></div>
+                    </div>
+
+                    <!-- SLN DASARI -->
+                    <div class="ig-post" style="width:300px; flex-shrink:0;">
+                        <div class="ig-post-header"><div class="ig-av">N</div><div><div class="ig-post-name">sln dasari ventures</div><div class="ig-post-by">by nikhil gowtham</div></div><div class="ig-post-dots">···</div></div>
+                        <div class="ig-img-zone" onclick="window.open('https://for-retail.github.io/realestate/','_blank')">
+                            <iframe src="https://for-retail.github.io/realestate/" loading="lazy"></iframe>
+                            <div class="ig-img-overlay">
+                                <span class="ig-overlay-tag">Real Estate · Ventures</span>
+                                <div class="ig-overlay-headline">Premium property.<br><em>Premium presence.</em></div>
+                                <div class="ig-overlay-sub">Real estate marketing platform for premium listings.</div>
+                                <a class="ig-overlay-url" href="https://for-retail.github.io/realestate/" target="_blank">for-retail.github.io/realestate</a>
+                            </div>
+                        </div>
+                        <div class="ig-dot-row"><div class="ig-d on"></div><div class="ig-d"></div><div class="ig-d"></div></div>
+                        <div class="ig-post-actions"><span>🤍</span><span>💬</span><span>📤</span><span class="ig-post-save">🔖</span></div>
+                        <div class="ig-post-likes">1,615 likes</div>
+                        <div class="ig-post-caption"><b>nikhilgowtham</b> Premium properties deserve a platform that matches their value.<div class="ig-post-hashtags">#SLNDasariVentures #RealEstateWebsite #NikhilGowtham #DigitalBuilds</div></div>
+                    </div>
+
+                </div><!-- end flex row -->
+            </div><!-- end scroll container -->
+        </section>
+
+        <!-- IDENTITY -->
+        <section id="identity">
+            <span class="tag">03. Protocols</span>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3 style="font-family:'Montserrat'; letter-spacing:2px; text-transform:uppercase; font-size:14px;">Professional</h3>
+                    <p style="margin-top:20px; font-size:22px; line-height:1.4;">
+                        IP & Content Operations professional at Fametoonz specializing in story architecture, IP structuring, and scalable content systems. <strong style="color:var(--accent);">Trained AI categorization systems by structuring 26K+ content pieces for machine learning workflows.</strong> Experienced in narrative framework design, metadata organization, and distribution-ready asset preparation.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <h3 style="font-family:'Montserrat'; letter-spacing:2px; text-transform:uppercase; font-size:14px;">Personal</h3>
+                    <p style="margin-top:20px; font-size:22px; line-height:1.4;">
+                        A storytelling and technology enthusiast focused on building structured creative systems. Certified in AWS Cloud fundamentals and trained in full-stack development. Fast learner, adaptive thinker, and concept-driven creator currently developing original narratives and assisting projects in story design, editing, and web systems.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESUME -->
         <section class="resume-bridge">
-            <span class="tag">03. Credentials</span>
+            <span class="tag">04. Credentials</span>
             <button class="btn" onclick="window.open('https://files.catbox.moe/bx7uus.pdf', '_blank')"
                 style="background:var(--accent); color:white; border:none; cursor:pointer;">
                 <i class="fa-solid fa-file-pdf"></i> RETRIEVE RESUME.PDF
             </button>
         </section>
 
-
-
+        <!-- CONTACT -->
         <section id="contact">
-            <span class="tag">04. Get in touch</span>
+            <span class="tag">05. Get in touch</span>
             <h2>matchalanikhilgowtham@gmail.com</h2>
             <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center;">
                 <a href="tel:6303594257" class="btn"><i class="fa-solid fa-phone"></i> VOICE</a>
@@ -672,112 +1067,9 @@
             </div>
         </section>
 
-        <section id="others">
-            <span class="tag">05. Modules</span>
-            <h2 style="font-size: 32px; font-style: italic; margin-bottom: 20px;">Prototypes & Logs</h2>
+    </div><!-- end wrapper -->
 
-            <div class="lab-split-container">
-
-                <div class="lab-column">
-                    <div class="column-header"><i class="fa-solid fa-scroll"></i> Narrative Scripts</div>
-
-                    <div class="split-card" onclick="openStory('car-life')">
-                        <h3>Life Through a Car</h3>
-                        <p>A symbolic story of a hero's journey reflected through his automotive creations and life
-                            setbacks.</p>
-                        <span class="action-text">> read_script.exe</span>
-                    </div>
-
-                    <div class="split-card" style="opacity: 0.5; cursor: default; border: 1px dashed #ccc;">
-                        <h3>Next Concept...</h3>
-                        <p>New storytelling experiment currently under development.</p>
-                        <span class="action-text">Status: Encrypting</span>
-                    </div>
-                </div>
-
-                <div class="lab-column">
-                    <div class="column-header"><i class="fa-solid fa-code"></i> Digital Builds</div>
-                    <div class="split-card" data-preview="https://sprightly-naiad-610aeb.netlify.app/"
-                        onclick="window.open('https://sprightly-naiad-610aeb.netlify.app/', '_blank')">
-                        <h3>TASKS</h3>
-                        <p>Team tasks follow </p>
-                        <span class="action-text">> launch_site.live</span>
-                    </div>
-                    <div class="split-card" data-preview="https://nikhilgowtham11.github.io/samala/"
-                        onclick="window.open('https://nikhilgowtham11.github.io/samala/', '_blank')">
-                        <h3>Samala</h3>
-                        <p>Premium e-commerce clothing store .</p>
-                        <span class="action-text">> launch_site.live</span>
-                    </div>
-
-
-                    <div class="split-card"
-                        data-preview="https://nikhilgowtham11.github.io/DMARK-Captures/dmark-captures.html"
-                        onclick="window.open('https://nikhilgowtham11.github.io/DMARK-Captures/dmark-captures.html')">
-                        <h3>DMARK Capture</h3>
-                        <p>Professional Photography Studio</p>
-                        <span class="action-text">> launch_site.live</span>
-                    </div>
-                     <div class="split-card" data-preview="https://for-retail.github.io/clothing/"
-                        onclick="window.open('https://for-retail.github.io/clothing/')">
-                        <h3>Sangeetha Vasthralayam</h3>
-                        <p>Premium e-commerce clothing store .</p>
-                        <span class="action-text">> launch_site.live</span>
-                    </div>
-
-
-
-                    <!-- ✅ NEW CARDS ADDED BELOW -->
-
-                    <div class="split-card" data-preview="https://for-retail.github.io/our-dream-studio/"
-                        onclick="window.open('https://for-retail.github.io/our-dream-studio/', '_blank')">
-                        <h3>Our Dream Studio</h3>
-                        <p>Creative studio showcase with a polished brand identity and immersive presentation layout.
-                        </p>
-                        <span class="action-text">> launch_site.live</span>
-                    </div>
-
-                    <div class="split-card" data-preview="https://for-retail.github.io/Archana_studio/"
-                        onclick="window.open('https://for-retail.github.io/Archana_studio/', '_blank')">
-                        <h3>Archana Studio</h3>
-                        <p>Elegant studio portfolio website with refined aesthetics built for creative professionals.
-                        </p>
-                        <span class="action-text">> launch_site.live</span>
-                    </div>
-
-                    <div class="split-card" data-preview="https://for-retail.github.io/Viraamam-Caf-/customer-app.html"
-                        onclick="window.open('https://for-retail.github.io/Viraamam-Caf-/customer-app.html', '_blank')">
-                        <h3>Viraamam Café</h3>
-                        <p>Digital customer app for a café experience — menu browsing and smooth order flow design.</p>
-                        <span class="action-text">> launch_site.live</span>
-                    </div>
-
-                    <div class="split-card" data-preview="https://for-retail.github.io/amara/"
-                        onclick="window.open('https://for-retail.github.io/amara/', '_blank')">
-                        <h3>Amara</h3>
-                        <p>Sophisticated brand landing page with clean typography and a premium visual identity.</p>
-                        <span class="action-text">> launch_site.live</span>
-                    </div>
-                    <div class="split-card" data-preview="https://for-retail.github.io/yoga/"
-                        onclick="window.open('https://for-retail.github.io/yoga/', '_blank')">
-                        <h3>Anusha Mindful Yoga</h3>
-                        <p>Minimalist yoga landing page featuring organic animations and serene aesthetics.</p>
-                        <span class="action-text">> launch_site.live</span>
-                    </div>
-
-                    <div class="split-card" data-preview="https://for-retail.github.io/realestate/"
-                        onclick="window.open('https://for-retail.github.io/realestate/', '_blank')">
-                        <h3>SLN Dasari Ventures</h3>
-                        <p>Real estate marketing platform designed for premium property and venture listings.</p>
-                        <span class="action-text">> launch_site.live</span>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-    </div>
-
+    <!-- site-preview (kept for future use) -->
     <div id="site-preview">
         <div class="preview-header">
             <span>LIVE INTERFACE PROTOCOL</span>
@@ -790,7 +1082,7 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -835,39 +1127,14 @@
         function openFullPage(type, index) {
             const content = {
                 'stories': [
-                    {
-                        t: 'Book of Balance',
-                        tag: 'STORY ARCHIVE',
-                        c: `<strong style="text-decoration: underline;">CONCEPT</strong><br>A dying planet is restored by three gods sent to save the world itself, not the lives upon it. When a grief-stricken man questions their justice and rejects their answers, he rises against divine law to redefine balance.<br><br><strong style="text-decoration: underline;">THEMES</strong><br>Two saviors fight for the same world but believe it must be saved in opposite ways.<br>Justice versus Balance.<br>Compassion versus Order.<br><br><strong style="text-decoration: underline;">CHARACTERS</strong><br><br><div class="char" style="animation-delay: 1.0s"><strong>The Revolutionary:</strong> A man shaped by suffering, determined to challenge divine authority.</div><br><div class="char" style="animation-delay: 1.3s"><strong>The Anomaly:</strong> A boy whose unseen future drives him to protect the world he loves.</div><br><div class="char" style="animation-delay: 1.6s"><strong>The Divine Heir:</strong> Daughter of the hidden third god who defies divine rules to protect humanity.</div><br><div class="char" style="animation-delay: 1.9s"><strong>The Gods:</strong> Cosmic guardians bound to maintain planetary balance.</div><br><div class="char" style="animation-delay: 2.2s"><strong>The Evils:</strong> Ancient forces hidden beyond divine sight.</div><br><br><strong style="text-decoration: underline;">CENTRAL CONFLICT</strong><br>After losing the person he loved and receiving no help from the gods, the Revolutionary begins a war against divine authority, forcing the world to choose between justice and stability.<br><br><strong style="text-decoration: underline;">TITLE MEANING</strong><br>The Book of Balance is the sacred law that governs gods themselves.`
-                    },
-                    {
-                        t: 'MaHi',
-                        tag: 'STORY ARCHIVE',
-                        c: `<strong style="text-decoration: underline;">CONCEPT</strong><br>A grieving father protects a young girl who received his daughter's heart transplant after his own child died saving her. Years later, when the girl becomes a target due to her powerful father's enemies, the man risks his life to keep her alive, believing a part of his daughter still lives within her.<br><br><strong style="text-decoration: underline;">CORE IDEA</strong><br>The life of one child continues inside another. A father who lost everything now guards the only remaining piece of his daughter's existence, proving that love can outlive death through responsibility.<br><br><strong style="text-decoration: underline;">PRIMARY CHARACTERS</strong><br><br><div class="char" style="animation-delay: 1.0s"><strong>The Protagonist:</strong> A broken father driven by grief and a promise; he refuses to lose the life his daughter died to save.</div><br><div class="char" style="animation-delay: 1.3s"><strong>Hima:</strong> The transplant recipient. Innocent and unaware that her survival cost another life, she symbolizes the continuation of Maya.</div><br><div class="char" style="animation-delay: 1.6s"><strong>Maya:</strong> The deceased daughter. She exists through memories and visions that guide her father in moments of danger.</div><br><div class="char" style="animation-delay: 1.9s"><strong>Hima's Father:</strong> A powerful, morally gray figure whose influence saved his daughter but now puts her in mortal danger.</div><br><div class="char" style="animation-delay: 2.2s"><strong>Maya's Mother:</strong> The moral anchor who ensures the promise of protection is kept no matter the cost.</div><br><br><strong style="text-decoration: underline;">CONCEPT TONE</strong><br>An emotional action drama grounded in sacrifice, memory, and the belief that parenthood is defined by protection rather than just blood.`
-                    },
-                    {
-                        t: 'Bite',
-                        tag: 'STORY ARCHIVE',
-                        c: `<strong style="text-decoration: underline;">CONCEPT</strong><br>A man attempts to break up a street dog fight and gets bitten. In a moment of impulsive rage, he bites the dog back. The incident lands both in separate hospitals, receiving treatment for each other's bite wounds.<br><br><strong style="text-decoration: underline;">CORE HOOK</strong><br>A human and a dog begin to mirror each other's behavior, crossing the line between instinct and reason. The situation spirals into an absurd rivalry as they blame each other for their mutual suffering.<br><br><strong style="text-decoration: underline;">SCENARIO BEATS</strong><br><br><div class="char" style="animation-delay: 1.0s"><strong>The Mirror Effect:</strong> Both characters are shown in parallel hospital beds, dealing with painful injections and restrictive cones.</div><br><div class="char" style="animation-delay: 1.3s"><strong>The Rivalry:</strong> What starts as a freak accident becomes a personal vendetta, with each side feeling like the true victim.</div><br><div class="char" style="animation-delay: 1.6s"><strong>Role Reversal:</strong> The man begins to adopt canine-like aggression, while the dog displays human-like spite and dramatic flair.</div><br><div class="char" style="animation-delay: 1.9s"><strong>Escalating Absurdity:</strong> The conflict grows from a street bite into a legendary, exaggerated standoff.</div><br><br><strong style="text-decoration: underline;">TONE & TYPE</strong><br>A short-form situational comedy grounded in physical humor and exaggerated dramatic parody. It explores the thin line where human logic meets animal instinct.`
-                    },
-                    {
-                        t: 'Extra Step',
-                        tag: 'PARALLEL NARRATIVE',
-                        c: `<strong style="text-decoration: underline;">CONCEPT</strong><br>A man's ordinary visit to a barber unfolds in parallel with a dramatic treasure hunt adventure. As the haircut progresses, each step mirrors a stage of the quest — hair wash becomes river crossing, trimming becomes obstacle navigation, final styling becomes the approach to the treasure chamber.<br><br><strong style="text-decoration: underline;">NARRATIVE MECHANISM</strong><br>The story uses synchronized parallel editing and visual symmetry. Each world reflects the same pattern: Progress → Confidence → Excess → Regret.<br><br><strong style="text-decoration: underline;">CHARACTERS</strong><br><br><div class="char" style="animation-delay: 1.0s"><strong>The Protagonist:</strong> An ordinary man seeking a change, caught between two worlds.</div><br><div class="char" style="animation-delay: 1.3s"><strong>The Friend:</strong> The catalyst of greed. In both worlds, he pushes the hero to go "just a little more."</div><br><div class="char" style="animation-delay: 1.6s"><strong>The Barber / The Guardian:</strong> The executors of the hero's fate. One holds a scissor, the other a sword.</div><br><br><strong style="text-decoration: underline;">CLIMAX</strong><br>In the fantasy world, the treasure chest is empty. In reality, the haircut is ruined. The hero stares at both outcomes with the same expression — disappointment born from overreaching.<br><br><strong style="text-decoration: underline;">THEME</strong><br>The pursuit of "more" often destroys what was already enough.`
-                    },
-
+                    { t: 'Book of Balance', tag: 'STORY ARCHIVE', c: `<strong style="text-decoration: underline;">CONCEPT</strong><br>A dying planet is restored by three gods sent to save the world itself, not the lives upon it. When a grief-stricken man questions their justice and rejects their answers, he rises against divine law to redefine balance.<br><br><strong style="text-decoration: underline;">THEMES</strong><br>Two saviors fight for the same world but believe it must be saved in opposite ways.<br>Justice versus Balance.<br>Compassion versus Order.<br><br><strong style="text-decoration: underline;">CHARACTERS</strong><br><br><div class="char" style="animation-delay: 1.0s"><strong>The Revolutionary:</strong> A man shaped by suffering, determined to challenge divine authority.</div><br><div class="char" style="animation-delay: 1.3s"><strong>The Anomaly:</strong> A boy whose unseen future drives him to protect the world he loves.</div><br><div class="char" style="animation-delay: 1.6s"><strong>The Divine Heir:</strong> Daughter of the hidden third god who defies divine rules to protect humanity.</div><br><div class="char" style="animation-delay: 1.9s"><strong>The Gods:</strong> Cosmic guardians bound to maintain planetary balance.</div><br><div class="char" style="animation-delay: 2.2s"><strong>The Evils:</strong> Ancient forces hidden beyond divine sight.</div><br><br><strong style="text-decoration: underline;">CENTRAL CONFLICT</strong><br>After losing the person he loved and receiving no help from the gods, the Revolutionary begins a war against divine authority, forcing the world to choose between justice and stability.<br><br><strong style="text-decoration: underline;">TITLE MEANING</strong><br>The Book of Balance is the sacred law that governs gods themselves.` },
+                    { t: 'MaHi', tag: 'STORY ARCHIVE', c: `<strong style="text-decoration: underline;">CONCEPT</strong><br>A grieving father protects a young girl who received his daughter's heart transplant after his own child died saving her. Years later, when the girl becomes a target due to her powerful father's enemies, the man risks his life to keep her alive, believing a part of his daughter still lives within her.<br><br><strong style="text-decoration: underline;">CORE IDEA</strong><br>The life of one child continues inside another. A father who lost everything now guards the only remaining piece of his daughter's existence, proving that love can outlive death through responsibility.<br><br><strong style="text-decoration: underline;">PRIMARY CHARACTERS</strong><br><br><div class="char" style="animation-delay: 1.0s"><strong>The Protagonist:</strong> A broken father driven by grief and a promise; he refuses to lose the life his daughter died to save.</div><br><div class="char" style="animation-delay: 1.3s"><strong>Hima:</strong> The transplant recipient. Innocent and unaware that her survival cost another life, she symbolizes the continuation of Maya.</div><br><div class="char" style="animation-delay: 1.6s"><strong>Maya:</strong> The deceased daughter. She exists through memories and visions that guide her father in moments of danger.</div><br><div class="char" style="animation-delay: 1.9s"><strong>Hima's Father:</strong> A powerful, morally gray figure whose influence saved his daughter but now puts her in mortal danger.</div><br><div class="char" style="animation-delay: 2.2s"><strong>Maya's Mother:</strong> The moral anchor who ensures the promise of protection is kept no matter the cost.</div><br><br><strong style="text-decoration: underline;">CONCEPT TONE</strong><br>An emotional action drama grounded in sacrifice, memory, and the belief that parenthood is defined by protection rather than just blood.` },
+                    { t: 'Bite', tag: 'STORY ARCHIVE', c: `<strong style="text-decoration: underline;">CONCEPT</strong><br>A man attempts to break up a street dog fight and gets bitten. In a moment of impulsive rage, he bites the dog back. The incident lands both in separate hospitals, receiving treatment for each other's bite wounds.<br><br><strong style="text-decoration: underline;">CORE HOOK</strong><br>A human and a dog begin to mirror each other's behavior, crossing the line between instinct and reason. The situation spirals into an absurd rivalry as they blame each other for their mutual suffering.<br><br><strong style="text-decoration: underline;">SCENARIO BEATS</strong><br><br><div class="char" style="animation-delay: 1.0s"><strong>The Mirror Effect:</strong> Both characters are shown in parallel hospital beds, dealing with painful injections and restrictive cones.</div><br><div class="char" style="animation-delay: 1.3s"><strong>The Rivalry:</strong> What starts as a freak accident becomes a personal vendetta, with each side feeling like the true victim.</div><br><div class="char" style="animation-delay: 1.6s"><strong>Role Reversal:</strong> The man begins to adopt canine-like aggression, while the dog displays human-like spite and dramatic flair.</div><br><div class="char" style="animation-delay: 1.9s"><strong>Escalating Absurdity:</strong> The conflict grows from a street bite into a legendary, exaggerated standoff.</div><br><br><strong style="text-decoration: underline;">TONE & TYPE</strong><br>A short-form situational comedy grounded in physical humor and exaggerated dramatic parody. It explores the thin line where human logic meets animal instinct.` },
+                    { t: 'Extra Step', tag: 'PARALLEL NARRATIVE', c: `<strong style="text-decoration: underline;">CONCEPT</strong><br>A man's ordinary visit to a barber unfolds in parallel with a dramatic treasure hunt adventure. As the haircut progresses, each step mirrors a stage of the quest — hair wash becomes river crossing, trimming becomes obstacle navigation, final styling becomes the approach to the treasure chamber.<br><br><strong style="text-decoration: underline;">NARRATIVE MECHANISM</strong><br>The story uses synchronized parallel editing and visual symmetry. Each world reflects the same pattern: Progress → Confidence → Excess → Regret.<br><br><strong style="text-decoration: underline;">CHARACTERS</strong><br><br><div class="char" style="animation-delay: 1.0s"><strong>The Protagonist:</strong> An ordinary man seeking a change, caught between two worlds.</div><br><div class="char" style="animation-delay: 1.3s"><strong>The Friend:</strong> The catalyst of greed. In both worlds, he pushes the hero to go "just a little more."</div><br><div class="char" style="animation-delay: 1.6s"><strong>The Barber / The Guardian:</strong> The executors of the hero's fate. One holds a scissor, the other a sword.</div><br><br><strong style="text-decoration: underline;">CLIMAX</strong><br>In the fantasy world, the treasure chest is empty. In reality, the haircut is ruined. The hero stares at both outcomes with the same expression — disappointment born from overreaching.<br><br><strong style="text-decoration: underline;">THEME</strong><br>The pursuit of "more" often destroys what was already enough.` },
                 ],
                 'games': [
-                    {
-                        t: 'Genview',
-                        tag: 'GAME BLUEPRINT',
-                        c: `<strong style="text-decoration: underline;">SYSTEM CORE</strong><br>First-generation procedural visualization system designed as a calm first-person world creation experience centered on presence, memory, and gradual transformation.<br><br><strong style="text-decoration: underline;">GENERATION LOGIC</strong><br>Players begin inside an empty environment and shape it through intention rather than instant control. The system interprets what the player wants, letting their imagination world evolve slowly and naturally.<br><br><strong style="text-decoration: underline;">WORLD PROTOCOLS</strong><br><br><div class="char" style="animation-delay: 1.0s"><strong>Inhabited Imagination:</strong> Players physically inhabit their imagined places, allowing them to walk through and explore worlds that were previously only mental images.</div><br><div class="char" style="animation-delay: 1.3s"><strong>Environmental Events:</strong> The world is dynamic; natural or supernatural disasters can occur, testing the world's resilience and changing the landscape.</div><br><div class="char" style="animation-delay: 1.6s"><strong>Multiplayer Synchronization:</strong> Designed for shared presence, allowing friends to enter the same imagination world to explore or build together in real-time.</div><br><div class="char" style="animation-delay: 1.9s"><strong>Persistent Evolution:</strong> Every action leaves a trace; the environment remembers what was done, creating a living history of the player's journey.</div><br><br><strong style="text-decoration: underline;">DESIGN PHILOSOPHY</strong><br>Genview is a reflective space where people return not to win, but to continue shaping something deeply personal. The only real boundary is the user's imagination.`
-                    },
-                    {
-                        t: 'Genview V2',
-                        tag: 'GAME BLUEPRINT',
-                        c: `<strong style="text-decoration: underline;">EVOLUTIONARY CORE</strong><br>Building on the foundation of Genview, V2 introduces a high-stakes conflict layer where players must defend their imagined realms through tactical creativity.<br><br><strong style="text-decoration: underline;">IMAGINATION COMBAT (PvP)</strong><br>The system supports 1 vs 1, 1 vs Multiple, and Team vs Team scenarios. No weapons are provided by the system; instead, players must architect their own arsenal in real-time using AI-assisted construction.<br><br><strong style="text-decoration: underline;">AI WEAPON FORGE</strong><br><br><div class="char" style="animation-delay: 1.0s"><strong>Dynamic Manifestation:</strong> The AI interprets user intent to build weapons instantly. If you can think it, the system renders it.</div><br><div class="char" style="animation-delay: 1.3s"><strong>The Arsenal:</strong> Access to iconic logic-forms like <strong>Guns</strong>, <strong>Rasengan</strong>, <strong>Bankai</strong>, or <strong>kamehameha</strong>.</div><br><div class="char" style="animation-delay: 1.6s"><strong>Power Scaling:</strong> Weapon effectiveness depends entirely on the detail and clarity of the user's imagination.</div><br><div class="char" style="animation-delay: 1.9s"><strong>World Defense:</strong> Combat isn't just for sport; it's a protocol to protect the integrity of your personal world from invaders.</div><br><br><strong style="text-decoration: underline;">DESIGN PHILOSOPHY</strong><br>Genview V2 transforms imagination into power. It removes the boundary between "the creator" and "the warrior," proving that the strongest weapon in any system is the mind that built it.`
-                    },
+                    { t: 'Genview', tag: 'GAME BLUEPRINT', c: `<strong style="text-decoration: underline;">SYSTEM CORE</strong><br>First-generation procedural visualization system designed as a calm first-person world creation experience centered on presence, memory, and gradual transformation.<br><br><strong style="text-decoration: underline;">GENERATION LOGIC</strong><br>Players begin inside an empty environment and shape it through intention rather than instant control. The system interprets what the player wants, letting their imagination world evolve slowly and naturally.<br><br><strong style="text-decoration: underline;">WORLD PROTOCOLS</strong><br><br><div class="char" style="animation-delay: 1.0s"><strong>Inhabited Imagination:</strong> Players physically inhabit their imagined places, allowing them to walk through and explore worlds that were previously only mental images.</div><br><div class="char" style="animation-delay: 1.3s"><strong>Environmental Events:</strong> The world is dynamic; natural or supernatural disasters can occur, testing the world's resilience and changing the landscape.</div><br><div class="char" style="animation-delay: 1.6s"><strong>Multiplayer Synchronization:</strong> Designed for shared presence, allowing friends to enter the same imagination world to explore or build together in real-time.</div><br><div class="char" style="animation-delay: 1.9s"><strong>Persistent Evolution:</strong> Every action leaves a trace; the environment remembers what was done, creating a living history of the player's journey.</div><br><br><strong style="text-decoration: underline;">DESIGN PHILOSOPHY</strong><br>Genview is a reflective space where people return not to win, but to continue shaping something deeply personal. The only real boundary is the user's imagination.` },
+                    { t: 'Genview V2', tag: 'GAME BLUEPRINT', c: `<strong style="text-decoration: underline;">EVOLUTIONARY CORE</strong><br>Building on the foundation of Genview, V2 introduces a high-stakes conflict layer where players must defend their imagined realms through tactical creativity.<br><br><strong style="text-decoration: underline;">IMAGINATION COMBAT (PvP)</strong><br>The system supports 1 vs 1, 1 vs Multiple, and Team vs Team scenarios. No weapons are provided by the system; instead, players must architect their own arsenal in real-time using AI-assisted construction.<br><br><strong style="text-decoration: underline;">AI WEAPON FORGE</strong><br><br><div class="char" style="animation-delay: 1.0s"><strong>Dynamic Manifestation:</strong> The AI interprets user intent to build weapons instantly. If you can think it, the system renders it.</div><br><div class="char" style="animation-delay: 1.3s"><strong>The Arsenal:</strong> Access to iconic logic-forms like <strong>Guns</strong>, <strong>Rasengan</strong>, <strong>Bankai</strong>, or <strong>kamehameha</strong>.</div><br><div class="char" style="animation-delay: 1.6s"><strong>Power Scaling:</strong> Weapon effectiveness depends entirely on the detail and clarity of the user's imagination.</div><br><div class="char" style="animation-delay: 1.9s"><strong>World Defense:</strong> Combat isn't just for sport; it's a protocol to protect the integrity of your personal world from invaders.</div><br><br><strong style="text-decoration: underline;">DESIGN PHILOSOPHY</strong><br>Genview V2 transforms imagination into power. It removes the boundary between "the creator" and "the warrior," proving that the strongest weapon in any system is the mind that built it.` },
                 ],
                 'resume': [
                     { t: 'Curriculum Vitae', tag: 'Credentials', c: 'System Architect at Fametoonz Hub. Expert in asset orchestration and pipeline logic. Based in Tirupati.' }
@@ -881,7 +1148,6 @@
 
             const p = papers[Math.floor(Math.random() * papers.length)];
             p.userData.isZoomed = true;
-
             gsap.to(p.position, { x: 0, y: 0, z: isMobile ? 60 : 45, duration: 1.2, ease: "power2.out" });
             gsap.to(p.rotation, { x: 0, y: 0, z: 0, duration: 1 });
 
@@ -924,14 +1190,12 @@
             typeWriter();
         }
 
-        setTimeout(() => {
-            updateStatus("PARSING SYSTEM ARCHIVES...");
-        }, 5000);
+        setTimeout(() => { updateStatus("PARSING SYSTEM ARCHIVES..."); }, 5000);
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.1 });
-        document.querySelectorAll('section').forEach(s => observer.observe(s));
+        document.querySelectorAll('section:not(#others)').forEach(s => observer.observe(s));
 
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
@@ -956,75 +1220,12 @@
             if (data) {
                 document.getElementById('page-title').innerText = data.t;
                 document.getElementById('page-tag').innerText = data.tag;
-                document.getElementById('page-content').innerHTML = `<p>${data.c}</p>`;
-
+                document.getElementById('page-content').innerHTML = `<p>${data.c}</p>`; 
                 const page = document.getElementById('reading-page');
                 gsap.set(page, { display: 'flex' });
                 gsap.to(page, { opacity: 1, duration: 0.6 });
             }
         }
-
-        // --- SITE PREVIEW LOGIC ---
-        const sitePreview = document.getElementById('site-preview');
-        const previewIframe = document.getElementById('preview-iframe');
-        const previewUrlText = document.getElementById('preview-url');
-        const previewLoading = document.querySelector('.preview-loading');
-        let previewActive = false;
-
-        document.querySelectorAll('.split-card[data-preview]').forEach(card => {
-            card.addEventListener('mouseenter', (e) => {
-                const url = card.getAttribute('data-preview');
-                if (!url) return;
-
-                previewActive = true;
-                previewUrlText.innerText = url.replace('https://', '').toUpperCase();
-                previewIframe.src = url;
-                previewLoading.style.display = 'flex';
-
-                sitePreview.classList.add('active');
-
-                // Position initial
-                updatePreviewPos(e);
-            });
-
-            card.addEventListener('mouseleave', () => {
-                previewActive = false;
-                sitePreview.classList.remove('active');
-                setTimeout(() => {
-                    if (!previewActive) {
-                        previewIframe.src = '';
-                    }
-                }, 300);
-            });
-
-            card.addEventListener('mousemove', (e) => {
-                if (previewActive) {
-                    updatePreviewPos(e);
-                }
-            });
-        });
-
-        previewIframe.onload = () => {
-            previewLoading.style.display = 'none';
-        };
-
-        function updatePreviewPos(e) {
-            const offset = 20;
-            let x = e.clientX + offset;
-            let y = e.clientY + offset;
-
-            // Boundary check
-            if (x + 320 > window.innerWidth) x = e.clientX - 320 - offset;
-            if (y + 220 > window.innerHeight) y = e.clientY - 220 - offset;
-
-            gsap.to(sitePreview, {
-                left: x,
-                top: y,
-                duration: 0.4,
-                ease: "power2.out"
-            });
-        }
     </script>
 </body>
-
 </html>
