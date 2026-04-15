@@ -206,6 +206,120 @@
             backdrop-filter: blur(10px);
         }
 
+        /* =============================================
+           PROTOCOLS EDITORIAL LAYOUT
+           ============================================= */
+        .protocols-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            width: 100%;
+            max-width: 1100px;
+            margin-top: 60px;
+            border-top: 1px solid var(--ink);
+        }
+
+        @media (max-width: 768px) {
+            .protocols-wrap { grid-template-columns: 1fr; }
+        }
+
+        .protocol-col {
+            padding: 50px 50px 60px;
+            text-align: left;
+            position: relative;
+            transition: background 0.4s;
+        }
+
+        .protocol-col:first-child {
+            border-right: 1px solid var(--ink);
+        }
+
+        .protocol-col:hover {
+            background: rgba(139,115,85,0.04);
+        }
+
+        .protocol-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 90px;
+            line-height: 1;
+            color: var(--accent);
+            opacity: 0.18;
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            user-select: none;
+            letter-spacing: -4px;
+        }
+
+        .protocol-label {
+            font-family: 'Montserrat';
+            font-size: 9px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .protocol-label::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .protocol-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 42px;
+            line-height: 1.1;
+            margin-bottom: 28px;
+            color: var(--ink);
+        }
+
+        .protocol-body {
+            font-family: 'Montserrat';
+            font-size: 12.5px;
+            line-height: 1.9;
+            color: var(--ink);
+            opacity: 0.78;
+            font-weight: 300;
+        }
+
+        .protocol-body strong {
+            color: var(--accent);
+            font-weight: 600;
+            opacity: 1;
+        }
+
+        .protocol-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 28px;
+        }
+
+        .proto-tag {
+            font-family: 'Montserrat';
+            font-size: 8px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: 1px solid var(--ink);
+            padding: 4px 12px;
+            opacity: 0.55;
+            transition: 0.3s;
+        }
+
+        .protocol-col:hover .proto-tag {
+            opacity: 0.9;
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
         .paper-row {
             display: flex;
             justify-content: center;
@@ -397,6 +511,102 @@
             padding: 60px 10%;
             overflow-y: auto;
             opacity: 0;
+        }
+
+        #reading-page.project-mode {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #project-bar {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 14px 30px;
+            background: var(--paper);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            flex-shrink: 0;
+            z-index: 2;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+        }
+
+        #project-bar .btn {
+            padding: 10px 22px;
+            font-size: 10px;
+        }
+
+        #project-bar-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 22px;
+            color: var(--ink);
+        }
+
+        #project-bar-tag {
+            font-family: 'Montserrat';
+            font-size: 9px;
+            letter-spacing: 3px;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        #project-bar-url {
+            margin-left: auto;
+            font-family: 'Montserrat';
+            font-size: 9px;
+            letter-spacing: 1px;
+            color: var(--accent);
+            opacity: 0.7;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 260px;
+        }
+
+        #project-iframe-wrap {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #project-iframe-wrap iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        #iframe-loader {
+            position: absolute;
+            inset: 0;
+            background: var(--paper);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            z-index: 3;
+            transition: opacity 0.4s;
+        }
+
+        #iframe-loader .loader-ring {
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(0,0,0,0.1);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        #iframe-loader span {
+            font-family: 'Montserrat';
+            font-size: 9px;
+            letter-spacing: 3px;
+            color: var(--accent);
+            text-transform: uppercase;
         }
 
         .btn {
@@ -959,7 +1169,8 @@
     <div id="canvas-container"></div>
 
     <div id="reading-page">
-        <div style="max-width: 800px; margin: 0 auto; width: 100%;">
+        <!-- TEXT MODE (stories / blueprints) -->
+        <div id="reading-text-body" style="max-width: 800px; margin: 0 auto; width: 100%;">
             <button class="btn" onclick="closeReadingPage()" style="margin-bottom: 50px;">
                 <i class="fa-solid fa-arrow-left"></i> BACK TO ARCHIVE
             </button>
@@ -968,6 +1179,26 @@
             <div id="page-content"
                 style="margin-top: 50px; font-size: 24px; line-height: 1.6; font-family: 'Montserrat'; font-weight: 300;">
             </div>
+        </div>
+
+        <!-- LIVE PROJECT MODE -->
+        <div id="project-bar" style="display:none;">
+            <button class="btn" onclick="closeReadingPage()">
+                <i class="fa-solid fa-arrow-left"></i> BACK
+            </button>
+            <div>
+                <div id="project-bar-title">Project</div>
+                <div id="project-bar-tag">DIGITAL BUILD</div>
+            </div>
+            <div id="project-bar-url"></div>
+        </div>
+        <div id="project-iframe-wrap" style="display:none;">
+            <div id="iframe-loader">
+                <div class="loader-ring"></div>
+                <span>Loading Interface...</span>
+            </div>
+            <iframe id="project-iframe" src="" title="Project Preview" allow="fullscreen"
+                onload="document.getElementById('iframe-loader').style.opacity='0'; setTimeout(()=>document.getElementById('iframe-loader').style.display='none',400);"></iframe>
         </div>
     </div>
 
@@ -1032,14 +1263,13 @@
                             <div class="ig-post-dots">···</div>
                         </div>
                         <div class="ig-img-zone"
-                            onclick="window.open('https://sprightly-naiad-610aeb.netlify.app/','_blank')">
+                            onclick="openProject('https://sprightly-naiad-610aeb.netlify.app/', 'tasks', 'Team · Productivity')">
                             <iframe src="https://sprightly-naiad-610aeb.netlify.app/" loading="lazy"></iframe>
                             <div class="ig-img-overlay">
                                 <span class="ig-overlay-tag">Team · Productivity</span>
                                 <div class="ig-overlay-headline">Built for teams<br>that move <em>fast.</em></div>
                                 <div class="ig-overlay-sub">Clean task tracking — less chaos, more clarity.</div>
-                                <a class="ig-overlay-url" href="https://sprightly-naiad-610aeb.netlify.app/"
-                                    target="_blank">sprightly-naiad.netlify.app</a>
+                                <a class="ig-overlay-url" href="#" onclick="event.preventDefault(); openProject('https://sprightly-naiad-610aeb.netlify.app/', 'tasks', 'Team · Productivity')">sprightly-naiad.netlify.app</a>
                             </div>
                         </div>
                         <div class="ig-dot-row">
@@ -1067,14 +1297,13 @@
                             <div class="ig-post-dots">···</div>
                         </div>
                         <div class="ig-img-zone"
-                            onclick="window.open('https://nikhilgowtham11.github.io/samala/','_blank')">
+                            onclick="openProject('https://nikhilgowtham11.github.io/samala/', 'samala', 'Fashion · E-Commerce')">
                             <iframe src="https://nikhilgowtham11.github.io/samala/" loading="lazy"></iframe>
                             <div class="ig-img-overlay">
                                 <span class="ig-overlay-tag">Fashion · E-Commerce</span>
                                 <div class="ig-overlay-headline">Wear the <em>story.</em></div>
                                 <div class="ig-overlay-sub">Premium clothing store — style speaks before words do.</div>
-                                <a class="ig-overlay-url" href="https://nikhilgowtham11.github.io/samala/"
-                                    target="_blank">nikhilgowtham11.github.io/samala</a>
+                                <a class="ig-overlay-url" href="#" onclick="event.preventDefault(); openProject('https://nikhilgowtham11.github.io/samala/', 'samala', 'Fashion · E-Commerce')">nikhilgowtham11.github.io/samala</a>
                             </div>
                         </div>
                         <div class="ig-dot-row">
@@ -1102,7 +1331,7 @@
                             <div class="ig-post-dots">···</div>
                         </div>
                         <div class="ig-img-zone"
-                            onclick="window.open('https://nikhilgowtham11.github.io/DMARK-Captures/dmark-captures.html','_blank')">
+                            onclick="openProject('https://nikhilgowtham11.github.io/DMARK-Captures/dmark-captures.html', 'dmark captures', 'Photography · Studio')">
                             <iframe src="https://nikhilgowtham11.github.io/DMARK-Captures/dmark-captures.html"
                                 loading="lazy"></iframe>
                             <div class="ig-img-overlay">
@@ -1110,9 +1339,7 @@
                                 <div class="ig-overlay-headline">Every shot.<br><em>Preserved.</em></div>
                                 <div class="ig-overlay-sub">Professional photography studio — images do all the talking.
                                 </div>
-                                <a class="ig-overlay-url"
-                                    href="https://nikhilgowtham11.github.io/DMARK-Captures/dmark-captures.html"
-                                    target="_blank">Visit DMARK Captures</a>
+                                <a class="ig-overlay-url" href="#" onclick="event.preventDefault(); openProject('https://nikhilgowtham11.github.io/DMARK-Captures/dmark-captures.html', 'dmark captures', 'Photography · Studio')">Visit DMARK Captures</a>
                             </div>
                         </div>
                         <div class="ig-dot-row">
@@ -1140,15 +1367,14 @@
                             <div class="ig-post-dots">···</div>
                         </div>
                         <div class="ig-img-zone"
-                            onclick="window.open('https://for-retail.github.io/clothing/','_blank')">
+                            onclick="openProject('https://for-retail.github.io/clothing/', 'sangeetha vasthralayam', 'Traditional · Clothing')">
                             <iframe src="https://for-retail.github.io/clothing/" loading="lazy"></iframe>
                             <div class="ig-img-overlay">
                                 <span class="ig-overlay-tag">Traditional · Clothing</span>
                                 <div class="ig-overlay-headline">Tradition meets<br><em>elegance.</em></div>
                                 <div class="ig-overlay-sub">Premium ethnic wear — heritage at its heart, modern at its
                                     core.</div>
-                                <a class="ig-overlay-url" href="https://for-retail.github.io/clothing/"
-                                    target="_blank">for-retail.github.io/clothing</a>
+                                <a class="ig-overlay-url" href="#" onclick="event.preventDefault(); openProject('https://for-retail.github.io/clothing/', 'sangeetha vasthralayam', 'Traditional · Clothing')">for-retail.github.io/clothing</a>
                             </div>
                         </div>
                         <div class="ig-dot-row">
@@ -1176,14 +1402,13 @@
                             <div class="ig-post-dots">···</div>
                         </div>
                         <div class="ig-img-zone"
-                            onclick="window.open('https://for-retail.github.io/our-dream-studio/','_blank')">
+                            onclick="openProject('https://for-retail.github.io/our-dream-studio/', 'our dream studio', 'Creative · Studio')">
                             <iframe src="https://for-retail.github.io/our-dream-studio/" loading="lazy"></iframe>
                             <div class="ig-img-overlay">
                                 <span class="ig-overlay-tag">Creative · Studio</span>
                                 <div class="ig-overlay-headline">Where dreams<br>get a <em>brand.</em></div>
                                 <div class="ig-overlay-sub">Creative studio showcase — polished brand identity.</div>
-                                <a class="ig-overlay-url" href="https://for-retail.github.io/our-dream-studio/"
-                                    target="_blank">for-retail.github.io/our-dream-studio</a>
+                                <a class="ig-overlay-url" href="#" onclick="event.preventDefault(); openProject('https://for-retail.github.io/our-dream-studio/', 'our dream studio', 'Creative · Studio')">for-retail.github.io/our-dream-studio</a>
                             </div>
                         </div>
                         <div class="ig-dot-row">
@@ -1211,14 +1436,13 @@
                             <div class="ig-post-dots">···</div>
                         </div>
                         <div class="ig-img-zone"
-                            onclick="window.open('https://for-retail.github.io/Archana_studio/','_blank')">
+                            onclick="openProject('https://for-retail.github.io/Archana_studio/', 'archana studio', 'Portfolio · Studio')">
                             <iframe src="https://for-retail.github.io/Archana_studio/" loading="lazy"></iframe>
                             <div class="ig-img-overlay">
                                 <span class="ig-overlay-tag">Portfolio · Studio</span>
                                 <div class="ig-overlay-headline">Refined.<br><em>Remembered.</em></div>
                                 <div class="ig-overlay-sub">Elegant studio portfolio for creative professionals.</div>
-                                <a class="ig-overlay-url" href="https://for-retail.github.io/Archana_studio/"
-                                    target="_blank">for-retail.github.io/Archana_studio</a>
+                                <a class="ig-overlay-url" href="#" onclick="event.preventDefault(); openProject('https://for-retail.github.io/Archana_studio/', 'archana studio', 'Portfolio · Studio')">for-retail.github.io/Archana_studio</a>
                             </div>
                         </div>
                         <div class="ig-dot-row">
@@ -1246,16 +1470,14 @@
                             <div class="ig-post-dots">···</div>
                         </div>
                         <div class="ig-img-zone"
-                            onclick="window.open('https://for-retail.github.io/Viraamam-Caf-/customer-app.html','_blank')">
+                            onclick="openProject('https://for-retail.github.io/Viraamam-Caf-/customer-app.html', 'viraamam café', 'Café · Digital App')">
                             <iframe src="https://for-retail.github.io/Viraamam-Caf-/customer-app.html"
                                 loading="lazy"></iframe>
                             <div class="ig-img-overlay">
                                 <span class="ig-overlay-tag">Café · Digital App</span>
                                 <div class="ig-overlay-headline">Order your calm.<br><em>Effortlessly.</em></div>
                                 <div class="ig-overlay-sub">Digital customer app — smooth menu and order flow.</div>
-                                <a class="ig-overlay-url"
-                                    href="https://for-retail.github.io/Viraamam-Caf-/customer-app.html"
-                                    target="_blank">Visit Viraamam Café</a>
+                                <a class="ig-overlay-url" href="#" onclick="event.preventDefault(); openProject('https://for-retail.github.io/Viraamam-Caf-/customer-app.html', 'viraamam café', 'Café · Digital App')">Visit Viraamam Café</a>
                             </div>
                         </div>
                         <div class="ig-dot-row">
@@ -1282,14 +1504,13 @@
                             </div>
                             <div class="ig-post-dots">···</div>
                         </div>
-                        <div class="ig-img-zone" onclick="window.open('https://for-retail.github.io/amara/','_blank')">
+                        <div class="ig-img-zone" onclick="openProject('https://for-retail.github.io/amara/', 'amara', 'Brand · Landing Page')">
                             <iframe src="https://for-retail.github.io/amara/" loading="lazy"></iframe>
                             <div class="ig-img-overlay">
                                 <span class="ig-overlay-tag">Brand · Landing Page</span>
                                 <div class="ig-overlay-headline">Sophistication<br>in every <em>pixel.</em></div>
                                 <div class="ig-overlay-sub">Premium brand landing page — strong visual identity.</div>
-                                <a class="ig-overlay-url" href="https://for-retail.github.io/amara/"
-                                    target="_blank">for-retail.github.io/amara</a>
+                                <a class="ig-overlay-url" href="#" onclick="event.preventDefault(); openProject('https://for-retail.github.io/amara/', 'amara', 'Brand · Landing Page')">for-retail.github.io/amara</a>
                             </div>
                         </div>
                         <div class="ig-dot-row">
@@ -1316,15 +1537,14 @@
                             </div>
                             <div class="ig-post-dots">···</div>
                         </div>
-                        <div class="ig-img-zone" onclick="window.open('https://for-retail.github.io/yoga/','_blank')">
+                        <div class="ig-img-zone" onclick="openProject('https://for-retail.github.io/yoga/', 'anusha mindful yoga', 'Wellness · Yoga')">
                             <iframe src="https://for-retail.github.io/yoga/" loading="lazy"></iframe>
                             <div class="ig-img-overlay">
                                 <span class="ig-overlay-tag">Wellness · Yoga</span>
                                 <div class="ig-overlay-headline">Breathe.<br><em>Be present.</em></div>
                                 <div class="ig-overlay-sub">Minimalist yoga landing page — organic animations, serene
                                     aesthetics.</div>
-                                <a class="ig-overlay-url" href="https://for-retail.github.io/yoga/"
-                                    target="_blank">for-retail.github.io/yoga</a>
+                                <a class="ig-overlay-url" href="#" onclick="event.preventDefault(); openProject('https://for-retail.github.io/yoga/', 'anusha mindful yoga', 'Wellness · Yoga')">for-retail.github.io/yoga</a>
                             </div>
                         </div>
                         <div class="ig-dot-row">
@@ -1352,14 +1572,13 @@
                             <div class="ig-post-dots">···</div>
                         </div>
                         <div class="ig-img-zone"
-                            onclick="window.open('https://for-retail.github.io/realestate/','_blank')">
+                            onclick="openProject('https://for-retail.github.io/realestate/', 'sln dasari ventures', 'Real Estate · Ventures')">
                             <iframe src="https://for-retail.github.io/realestate/" loading="lazy"></iframe>
                             <div class="ig-img-overlay">
                                 <span class="ig-overlay-tag">Real Estate · Ventures</span>
                                 <div class="ig-overlay-headline">Premium property.<br><em>Premium presence.</em></div>
                                 <div class="ig-overlay-sub">Real estate marketing platform for premium listings.</div>
-                                <a class="ig-overlay-url" href="https://for-retail.github.io/realestate/"
-                                    target="_blank">for-retail.github.io/realestate</a>
+                                <a class="ig-overlay-url" href="#" onclick="event.preventDefault(); openProject('https://for-retail.github.io/realestate/', 'sln dasari ventures', 'Real Estate · Ventures')">for-retail.github.io/realestate</a>
                             </div>
                         </div>
                         <div class="ig-dot-row">
@@ -1381,30 +1600,48 @@
         </section>
 
         <!-- IDENTITY -->
-        <section id="identity">
+        <section id="identity" style="padding:100px 6%;">
             <span class="tag">03. Protocols</span>
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3 style="font-family:'Montserrat'; letter-spacing:2px; text-transform:uppercase; font-size:14px;">
-                        Professional</h3>
-                    <p style="margin-top:20px; font-size:22px; line-height:1.4;">
-                        IP & Content Operations professional at Fametoonz specializing in story architecture, IP
-                        structuring, and scalable content systems. <strong style="color:var(--accent);">Trained AI
-                            categorization systems by structuring 26K+ content pieces for machine learning
-                            workflows.</strong> Experienced in narrative framework design, metadata organization, and
-                        distribution-ready asset preparation.
+            <h2 style="font-size:clamp(60px,10vw,120px); font-style:italic; margin-top:6px; opacity:0.08; letter-spacing:-4px; line-height:0.9; pointer-events:none; user-select:none;">Identity</h2>
+
+            <div class="protocols-wrap">
+
+                <!-- PROFESSIONAL -->
+                <div class="protocol-col">
+                    <div class="protocol-num">01</div>
+                    <div class="protocol-label">Professional</div>
+                    <h3 class="protocol-heading">Narrative<br>Architect</h3>
+                    <p class="protocol-body">
+                        IP &amp; Content Operations professional at <strong>Fametoonz</strong> specialising in story architecture, IP structuring, and scalable content systems.
+                        <br><br>
+                        <strong>Trained AI categorization systems</strong> by structuring 26K+ content pieces for machine learning workflows. Experienced in narrative framework design, metadata organisation, and distribution-ready asset preparation.
                     </p>
+                    <div class="protocol-tags">
+                        <span class="proto-tag">Story Architecture</span>
+                        <span class="proto-tag">IP Structuring</span>
+                        <span class="proto-tag">AI Training Data</span>
+                        <span class="proto-tag">Content Systems</span>
+                    </div>
                 </div>
-                <div class="info-card">
-                    <h3 style="font-family:'Montserrat'; letter-spacing:2px; text-transform:uppercase; font-size:14px;">
-                        Personal</h3>
-                    <p style="margin-top:20px; font-size:22px; line-height:1.4;">
-                        A storytelling and technology enthusiast focused on building structured creative systems.
-                        Certified in AWS Cloud fundamentals and trained in full-stack development. Fast learner,
-                        adaptive thinker, and concept-driven creator currently developing original narratives and
-                        assisting projects in story design, editing, and web systems.
+
+                <!-- PERSONAL -->
+                <div class="protocol-col">
+                    <div class="protocol-num">02</div>
+                    <div class="protocol-label">Personal</div>
+                    <h3 class="protocol-heading">Builder &amp;<br>Creator</h3>
+                    <p class="protocol-body">
+                        A storytelling and technology enthusiast focused on building structured creative systems. <strong>Certified in AWS Cloud</strong> fundamentals and trained in full-stack development.
+                        <br><br>
+                        Fast learner, adaptive thinker, and concept-driven creator currently developing original narratives and assisting projects in story design, editing, and web systems.
                     </p>
+                    <div class="protocol-tags">
+                        <span class="proto-tag">AWS Cloud</span>
+                        <span class="proto-tag">Full-Stack Dev</span>
+                        <span class="proto-tag">Narrative Design</span>
+                        <span class="proto-tag">Web Systems</span>
+                    </div>
                 </div>
+
             </div>
         </section>
 
@@ -1413,9 +1650,9 @@
             <span class="tag">04. Credentials</span>
             <div class="spiderman-wrapper">
                 <div class="web-line"></div>
-                <button class="btn" onclick="window.open('https://files.catbox.moe/bx7uus.pdf', '_blank')"
+                <button class="btn" onclick="openProject('https://docs.google.com/gview?url=https://files.catbox.moe/bx7uus.pdf&embedded=true', 'curriculum vitae', '04. Credentials')"
                     style="background:var(--accent); color:white; border:none; cursor:pointer; position: relative; z-index: 101;">
-                    <i class="fa-solid fa-file-pdf"></i> RETRIEVE RESUME.PDF
+                    <i class="fa-solid fa-file-pdf"></i> VIEW RESUME
                 </button>
                 <img src="https://i.postimg.cc/5tmzT0tv/15b98f4047091fe00d5c44438e9f9dc6-removebg-preview.png" 
                      alt="img-spiderman" class="spiderman-hanging">
@@ -1547,10 +1784,49 @@
             gsap.to(page, { opacity: 1, duration: 0.6, delay: 0.8 });
         }
 
+        function openProject(url, title, tag) {
+            // Switch to project (iframe) mode
+            document.getElementById('reading-text-body').style.display = 'none';
+            document.getElementById('project-bar').style.display = 'flex';
+            document.getElementById('project-iframe-wrap').style.display = 'flex';
+
+            document.getElementById('project-bar-title').textContent = title;
+            document.getElementById('project-bar-tag').textContent = tag;
+            document.getElementById('project-bar-url').textContent = url.replace(/^https?:\/\//, '');
+
+            // Reset loader
+            const loader = document.getElementById('iframe-loader');
+            loader.style.opacity = '1';
+            loader.style.display = 'flex';
+            document.getElementById('project-iframe').src = url;
+
+            // Three.js paper zoom
+            const p = papers[Math.floor(Math.random() * papers.length)];
+            p.userData.isZoomed = true;
+            gsap.to(p.position, { x: 0, y: 0, z: isMobile ? 60 : 45, duration: 1.2, ease: "power2.out" });
+            gsap.to(p.rotation, { x: 0, y: 0, z: 0, duration: 1 });
+
+            const page = document.getElementById('reading-page');
+            document.body.style.overflow = 'hidden';
+            page.classList.add('project-mode');
+            gsap.set(page, { display: 'flex', flexDirection: 'column' });
+            gsap.to(page, { opacity: 1, duration: 0.6, delay: 0.3 });
+        }
+
         function closeReadingPage() {
             gsap.to("#reading-page", {
                 opacity: 0, duration: 0.4, onComplete: () => {
-                    document.getElementById('reading-page').style.display = 'none';
+                    const page = document.getElementById('reading-page');
+                    page.style.display = 'none';
+                    page.classList.remove('project-mode');
+                    document.body.style.overflow = 'auto';
+
+                    // Reset iframe to stop any loaded site
+                    document.getElementById('project-iframe').src = '';
+                    document.getElementById('project-bar').style.display = 'none';
+                    document.getElementById('project-iframe-wrap').style.display = 'none';
+                    document.getElementById('reading-text-body').style.display = 'block';
+
                     papers.forEach(p => {
                         if (p.userData.isZoomed) {
                             gsap.to(p.position, { x: p.userData.originalPos.x, y: p.userData.originalPos.y, z: p.userData.originalPos.z, duration: 1 });
